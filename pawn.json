@@ -1,0 +1,11 @@
+{
+	"user": "TempoServers",
+	"repo": "TempoID",
+	"tag": "0.0.1",
+	"entry": "test.pwn",
+	"output": "gamemodes/test.amx",
+	"dependencies": [
+		"pawn-lang/samp-stdlib",
+		"pBlueG/SA-MP-MySQL"
+	]
+}

@@ -1,0 +1,132 @@
+#if included _INC_tid_account
+    #endinput
+#endif
+#define _INC_tid_account
+
+/*==============================================================================
+
+
+	Tempo Roleplay
+
+		Copyright (C) 2022 Martin Santiago & Victor Rivera
+
+		This Source Code Form is subject to the terms of the Mozilla Public
+		License, v. 2.0. If a copy of the MPL was not distributed with this
+		file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+
+
+==============================================================================*/
+
+#include <a_samp>
+#include <uuid>
+
+#include <YSI_Coding\y_hooks>
+
+
+forward TID_OnUserDataLoaded(playerid);
+
+enum E_USER_STATE 
+{
+    INVALID_USER_STATE = -1,
+    E_USER_STATE_CONNECTING = 0,
+    E_USER_STATE_LOGGING_IN,
+    E_USER_STATE_LOGGED_IN,
+    E_USER_STATE_BANNED
+}
+
+static
+E_USER_STATE:   TID_g_sUserStatus           [MAX_PLAYERS],
+                TID_g_sUserUUID             [MAX_PLAYERS][UUID_LEN],
+Cache:          TID_g_sUserCache            [MAX_PLAYERS],
+bool:           TID_g_sIsRegistered         [MAX_PLAYERS];
+
+
+hook OnPlayerConnect(playerid)
+{
+    new
+        query[128],  
+        username[MAX_PLAYER_NAME];
+    
+    GetPlayerName(playerid, username);
+
+    mysql_format(TID_GetMySQLHandle(), query, sizeof(query), "SELECT * FROM `tmp_accounts` WHERE `username` LIKE '%e' LIMIT 1",  username);
+    mysql_tquery(TID_GetMySQLHandle(), query, "TID_OnUserDataLoaded", "i", playerid);
+    return 1;
+}
+
+hook OnPlayerDisconnect(playerid)
+{
+    if (cache_is_valid(TID_g_sUserCache[playerid])) cache_delete(TID_g_sUserCache[playerid]);
+    return 1;
+}
+
+public TID_OnUserDataLoaded(playerid)
+{
+    Logger_Log("[OnUserDataLoaded] Data of user loaded correctly");
+
+    TID_g_sIsRegistered[playerid] = false;
+    if (cache_num_rows()) { 
+        TID_g_sIsRegistered[playerid] = true;
+        
+        cache_get_value_name(0, "uuid", TID_g_sUserUUID[playerid], UUID_LEN);
+        TID_g_sUserCache[playerid] = cache_save();
+    }
+
+    TID_SetUserStatus(playerid, E_USER_STATE_LOGGING_IN);
+    return 0;
+}
+
+/*==============================================================================
+
+	Interface
+
+==============================================================================*/
+
+/// <summary>Returns the current status of the user</summary>
+/// <param name="playerid">The ID of the player to get the status from</param>
+/// <seealso name="TID_SetUserStatus"/>
+stock E_USER_STATE:TID_GetUserStatus(playerid)
+{
+    return TID_g_sUserStatus[playerid];
+}
+
+/// <summary>* * *</summary>
+/// <param name="playerid">The ID of the player to get the status from</param>
+/// <seealso name="TID_GetUserStatus"/>
+stock TID_SetUserStatus(playerid, E_USER_STATE:status) 
+{
+    TID_g_sUserStatus[playerid] = status;
+    Logger_Log("setting status for user", Logger_P(playerid), Logger_I("status", _:status));
+}
+
+/// <summary>Returns the user's UUID</summary>
+/// <param name="playerid">The ID of the player to get the UUID from</param>
+/// <seealso name="TID_SetUserUUID"/>
+stock TID_GetUserUUID(playerid)
+{
+    return TID_g_sUserUUID[playerid];
+}
+
+/// <summary>* * *</summary>
+/// <param name="playerid">The ID of the player</param>
+/// <seealso name="TID_GetUserUUID"/>
+stock TID_SetUserUUID(playerid, const uuid[])
+{
+    TID_g_sUserUUID[playerid] = uuid;
+}
+
+/// <summary>Return the current cache id of the user at the time of connection</summary>
+/// <param name="playerid">The ID of the player to get the cache from</param>
+stock Cache:TID_GetUserCache(playerid)
+{
+    if (cache_is_valid(TID_g_sUserCache[playerid])) return TID_g_sUserCache[playerid];
+    else return MYSQL_INVALID_CACHE;
+}
+
+/// <summary>Returns true if the user is registered, false otherwise</summary>
+/// <param name="playerid">The ID of the player</param>
+stock bool:TID_IsUserRegistered(playerid) 
+{
+    return TID_g_sIsRegistered[playerid];
+}
