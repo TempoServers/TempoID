@@ -1,14 +1,10 @@
-#if included _INC_tid_account
-    #endinput
-#endif
-#define _INC_tid_account
 
 /*==============================================================================
 
 
-	Tempo Roleplay
+	Tempo ID
 
-		Copyright (C) 2022 Martin Santiago & Victor Rivera
+		Copyright (C) 2022 Martin Santiago
 
 		This Source Code Form is subject to the terms of the Mozilla Public
 		License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -18,29 +14,15 @@
 
 ==============================================================================*/
 
-#include <a_samp>
-#include <uuid>
-
 #include <YSI_Coding\y_hooks>
 
 
 forward TID_OnUserDataLoaded(playerid);
 
-enum E_USER_STATE 
-{
-    INVALID_USER_STATE = -1,
-    E_USER_STATE_CONNECTING = 0,
-    E_USER_STATE_LOGGING_IN,
-    E_USER_STATE_LOGGED_IN,
-    E_USER_STATE_BANNED
-}
-
 static
-E_USER_STATE:   TID_g_sUserStatus           [MAX_PLAYERS],
                 TID_g_sUserUUID             [MAX_PLAYERS][UUID_LEN],
 Cache:          TID_g_sUserCache            [MAX_PLAYERS],
 bool:           TID_g_sIsRegistered         [MAX_PLAYERS];
-
 
 hook OnPlayerConnect(playerid)
 {
@@ -63,8 +45,6 @@ hook OnPlayerDisconnect(playerid)
 
 public TID_OnUserDataLoaded(playerid)
 {
-    Logger_Log("[OnUserDataLoaded] Data of user loaded correctly");
-
     TID_g_sIsRegistered[playerid] = false;
     if (cache_num_rows()) { 
         TID_g_sIsRegistered[playerid] = true;
@@ -83,37 +63,11 @@ public TID_OnUserDataLoaded(playerid)
 
 ==============================================================================*/
 
-/// <summary>Returns the current status of the user</summary>
-/// <param name="playerid">The ID of the player to get the status from</param>
-/// <seealso name="TID_SetUserStatus"/>
-stock E_USER_STATE:TID_GetUserStatus(playerid)
-{
-    return TID_g_sUserStatus[playerid];
-}
-
-/// <summary>* * *</summary>
-/// <param name="playerid">The ID of the player to get the status from</param>
-/// <seealso name="TID_GetUserStatus"/>
-stock TID_SetUserStatus(playerid, E_USER_STATE:status) 
-{
-    TID_g_sUserStatus[playerid] = status;
-    Logger_Log("setting status for user", Logger_P(playerid), Logger_I("status", _:status));
-}
-
 /// <summary>Returns the user's UUID</summary>
 /// <param name="playerid">The ID of the player to get the UUID from</param>
-/// <seealso name="TID_SetUserUUID"/>
-stock TID_GetUserUUID(playerid)
+stock TID_GetUserUUID(playerid, &uuid[])
 {
     return TID_g_sUserUUID[playerid];
-}
-
-/// <summary>* * *</summary>
-/// <param name="playerid">The ID of the player</param>
-/// <seealso name="TID_GetUserUUID"/>
-stock TID_SetUserUUID(playerid, const uuid[])
-{
-    TID_g_sUserUUID[playerid] = uuid;
 }
 
 /// <summary>Return the current cache id of the user at the time of connection</summary>

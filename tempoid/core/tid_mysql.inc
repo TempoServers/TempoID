@@ -1,14 +1,9 @@
-#if defined _INC_tid_mysql
-    #endinput
-#endif
-#define _INC_tid_mysql
-
 /*==============================================================================
 
 
-	Tempo Roleplay
+	Tempo ID
 
-		Copyright (C) 2022 Martin Santiago & Victor Rivera
+		Copyright (C) 2022 Martin Santiago
 
 		This Source Code Form is subject to the terms of the Mozilla Public
 		License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -18,16 +13,18 @@
 
 ==============================================================================*/
 
-#include <a_samp>
 #include <a_mysql>
+
 #include <YSI_Coding\y_hooks>
 
-#define TID_MYSQL_FILE              "tdi_mysql-key.ini"
+
+#define TID_MYSQL_FILE              "tempoid_mysql.ini"
 
 forward MySQL:TID_GetMySQLHandle();
 
 static
-MySQL:  TID_g_sMySQL; /// Connection handle with database
+MySQL:      TID_g_sMySQL; /// Connection handle with database
+
 
 hook OnGameModeInit() 
 {

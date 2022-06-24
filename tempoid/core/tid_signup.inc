@@ -1,9 +1,9 @@
 /*==============================================================================
 
 
-	Tempo Roleplay
+	Tempo ID
 
-		Copyright (C) 2022 Martin Santiago & Victor Rivera
+		Copyright (C) 2022 Martin Santiago
 
 		This Source Code Form is subject to the terms of the Mozilla Public
 		License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -13,51 +13,56 @@
 
 ==============================================================================*/
 
-#include <a_samp>
-#include <uuid>
-#include <samp_bcrypt>
-
 #include <YSI_Coding\y_hooks>
-
-
-static 
-            TID_g_UserPassword  [MAX_PLAYERS][BCRYPT_HASH_LENGTH],
-            TID_g_UserEmail     [MAX_PLAYERS][128];
-
-stock 
-            contentDialog[2000];
 
 
 forward TID_OnUserRegister(playerid);
 
+enum e_USER_REGISTRATION_STATE
+{
+    e_USER_REGISTRATION_STATE_NONE, // Just connected, not started registering yet
+    e_USER_REGISTRATION_STATE_E1,   // Typed the email
+    e_USER_REGISTRATION_STATE_E2,   // Verified the email
+    e_USER_REGISTRATION_STATE_P1,   // Typed the password
+    e_USER_REGISTRATION_STATE_P2,   // Verified the password
+    e_USER_REGISTRATION_STATE_WAIT, // Awaiting verification
+    e_USER_REGISTRATION_STATE_DONE, // Registered
+    e_USER_REGISTRATION_STATE_DISC, // Disconnected, but waiting for a callback to complete
+
+}
+
+static stock
+                            TID_g_UserPassword          [MAX_PLAYERS][BCRYPT_HASH_LENGTH],
+                            TID_g_UserEmail             [MAX_PLAYERS][128],
+e_USER_REGISTRATION_STATE:  TID_g_sRegistrationState    [MAX_PLAYERS];
+
+
 stock TID_DisplayRegisterPrompt(playerid) 
 {
-    Logger_Log("player is registering...", Logger_P(playerid));
+    TID_g_sRegistrationState[playerid] = e_USER_REGISTRATION_STATE_E1;
 
     inline const Response(response, listitem, string:inputtext[]) {
         #pragma unused listitem
 
         if (response) {
-            if (!(ValidEmail(inputtext))) {
-                TID_DisplayRegisterPrompt(playerid);
-                return 0;
-            }
+            if (TID_g_sRegistrationState[playerid] == e_USER_REGISTRATION_STATE_E1) {
+                if (!(ValidEmail(inputtext))) {
+                    TID_DisplayRegisterPrompt(playerid);
+                    return 0;
+                }
 
-            // TO-DO: Verify if the email is used
-            /*if (TID_IsEmailUsed(inputtext)) {
-                Logger_Log("email alredy used", Logger_S("email", inputtext));
-                Dialog_ShowCallback(playerid, using inline Response, DIALOG_STYLE_INPUT, "Ya hay una cuenta registrada con ese correo", "Escribe un correo electrónico diferente", "Continuar", "Cancelar");
-                return 0;
-            }*/
+                // TO-DO: Verify if the email is used
+                TID_g_sRegistrationState[playerid] = e_USER_REGISTRATION_STATE_E2;
 
-            format(TID_g_UserEmail[playerid], 128, "%s", inputtext);
-            TID_RequestPassword(playerid);
+                format(TID_g_UserEmail[playerid], 128, "%s", inputtext);
+                TID_RequestPassword(playerid);
+            }     
         }        
-
         return 1;
     }
 
-    if (!TID_IsUserRegistered(playerid)) {
+    if (!TID_IsUserRegistered(playerid) && TID_g_sRegistrationState == e_USER_REGISTRATION_STATE_E1) {
+        new contentDialog[300];
         format(contentDialog, sizeof(contentDialog), "Si olvidas tu contraseña, puedes recuperarla usando tu correo.\n\nSolo usaremos tu correo \
                                                         con fines de verificar tu identidad.\nNo te enviaremos spam ni venderemos tus datos a terceros.");
         Dialog_ShowCallback(playerid, using inline Response, DIALOG_STYLE_INPUT, "Ingresa un correo electrónico válido", contentDialog, "Continuar", "Cancelar");
@@ -71,6 +76,16 @@ stock TID_DisplayRegisterPrompt(playerid)
 
 TID_RequestPassword(playerid)
 {
+    if (TID_g_sRegistrationState[playerid] != e_USER_REGISTRATION_STATE_E2) {
+        // Some error? Reset user data and   trying again
+    }
+    else if (TID_g_sRegistrationState[playerid] == e_USER_REGISTRATION_STATE_E2)  {
+        TID_g_sRegistrationState[playerid] = e_USER_REGISTRATION_STATE_P1;
+    }
+    else {
+        // Some error?
+    }
+
     inline const Response(response, listitem, string:inputtext[]) {
         #pragma unused listitem
 
@@ -78,11 +93,8 @@ TID_RequestPassword(playerid)
             if (8 <= strlen(inputtext) < 32) {
                 inline const OnPasswordHashed(string:result[])
                 {
-                    UI_HidePlayerTempoID(playerid);
-                    UI_ShowPlayerLoadingScreen(playerid);
-
-                    Logger_Log("on user hash", Logger_S("hash", result));
                     StrCpy(TID_g_UserPassword[playerid], result);
+                    TID_g_sRegistrationState[playerid] = e_USER_REGISTRATION_STATE_P2;
 
                     TID_CreateTempoID(playerid);
                     return 0;
@@ -90,6 +102,10 @@ TID_RequestPassword(playerid)
                 
                 BCrypt_HashInline(inputtext, BCRYPT_COST, OnPasswordHashed);
             }
+        }
+        else {
+            if (TID_g_sRegistrationState[playerid] == e_USER_REGISTRATION_STATE_P1)
+                TID_g_sRegistrationState[playerid] = e_USER_REGISTRATION_STATE_NONE;
         }
     }
 
@@ -102,34 +118,28 @@ TID_RequestPassword(playerid)
 
 stock TID_CreateTempoID(playerid) 
 {
-    Logger_Log("creating Tempo ID account", Logger_P(playerid));
-
-    new query       [3000],
-        uuid        [UUID_LEN],
-        name        [MAX_PLAYER_NAME],
-        ip          [16],
+    new query   [3000],
+        uuid    [UUID_LEN],
+        name    [MAX_PLAYER_NAME],
+        ip      [16],
         year, month, day,
         hours, minutes, seconds;
-    
-    inline const UserRegistered() {
-        Logger_Log("user registered");
-        UI_HidePlayerLoadingScreen(playerid);
-    }
 
     UUID(uuid);
     GetPlayerName(playerid, name);
     GetPlayerIp(playerid, ip);
     getdate(year, month, day);
     gettime(hours, minutes, seconds);
-    
-    Logger_Log("creating user", Logger_S("uuid", uuid), Logger_S("name", name), Logger_S("ip", ip), Logger_S("email", TID_g_UserEmail[playerid]));
 
+    //TO-DO handle this Query using external files
     mysql_format(TID_GetMySQLHandle(), query, sizeof(query), "INSERT INTO `tmp_accounts` (`uuid`, `username`, `password`, `email`, `registration_date`, `registration_ip`) \
                                                                 VALUES ('%s', '%e', '%s', '%e', '%02d-%02d-%02d %d:%d:%d', '%s');", uuid, name, TID_g_UserPassword[playerid], TID_g_UserEmail[playerid], \
                                                                 year, month, day, hours, minutes, seconds, ip);
-    MySQL_TQueryInline(TID_GetMySQLHandle(), UserRegistered, query);
+    mysql_tquery(TID_GetMySQLHandle(), query, "OnUserRegister", "i", playerid);
+    return 0;
 }
 
+// TO-DO 
 /*
 stock TID_CreateTag(&usertag[])
 {
@@ -139,6 +149,7 @@ stock TID_CreateTag(&usertag[])
     Logger_Log("", Logger_S("usertag", usertag));
 }*/
 
+// TO-DO when Query is fetched is too late... idea: waiting message? cache all mails registered previously?
 stock TID_IsEmailUsed(const string:email[])
 {
     new 
@@ -147,7 +158,6 @@ stock TID_IsEmailUsed(const string:email[])
     inline const CheckEmail()
     {
         if (cache_num_rows()) return true;
-        Logger_I("email registered", cache_num_rows());
     }
 
     mysql_format(TID_GetMySQLHandle(), query, sizeof(query), "SELECT `uuid` FROM `tmp_accounts` WHERE `email`='%e' LIMIT 1", email);

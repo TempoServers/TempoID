@@ -13,44 +13,37 @@
 
 ==============================================================================*/
 
-#include <a_samp>
-#include <uuid>
-#include <samp_bcrypt>
-
 #include <YSI_Coding\y_hooks>
 
 
-forward TID_OnUserLogin(playerid);
-forward TID_OnUserAutoLogin(playerid);
+forward TID_OnUserLogin(playerid, bool:auto = false);
 forward TID_OnLoginPasswordHashed(playerid);
 
-/* 
-public TID_OnUserLogin(playerid)
+enum e_USER_LOGIN_STATE
 {
-    Logger_Log("[OnUserLogin] This callback was called", Logger_P(playerid));
-    
-    UI_HidePlayerTempoID(playerid);
-    UI_ShowPlayerLoadingScreen(playerid, "Cargando cuenta");
-    return 0;
-} */
-
-public TID_OnUserAutoLogin(playerid)
-{
-    Logger_Log("[OnUserAutoLogin] This callback was called", Logger_P(playerid));
-    UI_ShowPlayerLoadingScreen(playerid, "Logueado automaticamente");
-    return 0;
+    e_USER_LOGIN_STATE_NONE,
+    e_USER_LOGIN_STATE_AUTO, // Try to autologin first
+    e_USER_LOGIN_STATE_P1,
+    e_USER_LOGIN_STATE_P2,
+    e_USER_LOGIN_STATE_WAIT,
+    e_USER_LOGIN_STATE_DONE
 }
+
+stock static 
+e_USER_LOGIN_STATE:     TID_g_sLoginState       [playerid];
+
 
 TID_AutoLoginUser(playerid)
 {
-    Logger_Log("trying to autologin user...", Logger_P(playerid));
+    TID_g_sLoginState[playerid] = e_USER_LOGIN_STATE_AUTO;
 
     new
         query[248];
         
     inline const TID_OnCheckLastAccess()
     {
-        Logger_Log("data retrieved from database");
+        TID_g_sLoginState[playerid] = e_USER_LOGIN_STATE_WAIT;
+
         if (cache_num_rows()) {
             new 
                 serviceid, 
@@ -68,18 +61,26 @@ TID_AutoLoginUser(playerid)
             
             if (!(strcmp(currentIp, lastIp)) && !(strcmp(currentVersion, lastVersion)) && serviceid == TEMPO_SERVICE_ID) { 
                 if ((gettime() - lastTimestamp) < 86400) {
-                    Logger_Log("user was connected previously in less than 24 hours");
-                    TID_SetUserStatus(playerid, E_USER_STATE_LOGGED_IN);
-                    return TID_OnUserAutoLogin(playerid); // Success
-                }                    
+                    TID_g_sLoginState[playerid] = e_USER_LOGIN_STATE_DONE;
+                    return TID_OnUserLogin(playerid, true); // Success
+                }
+                else {
+                    TID_g_sLoginState[playerid] = e_USER_LOGIN_STATE_NONE;
+                }                   
+            }
+            else {
+                TID_g_sLoginState[playerid] = e_USER_LOGIN_STATE_NONE;
             }
         }
-        return 0;
+        else  {
+            TID_g_sLoginState[playerid] = e_USER_LOGIN_STATE_NONE;
+        }
+        return 1;
     }
 
     mysql_format(TID_GetMySQLHandle(), query, sizeof(query), "SELECT *, UNIX_TIMESTAMP(timestamp) AS 'last_timestamp' FROM `tmp_access_log` WHERE uuid = '%s' ORDER BY timestamp DESC LIMIT 1", TID_GetUserUUID(playerid));
     MySQL_TQueryInline(TID_GetMySQLHandle(), using inline TID_OnCheckLastAccess, query);
-    return 0;
+    return 1;
 }
 
 public TID_OnLoginPasswordHashed(playerid)
@@ -99,11 +100,20 @@ public TID_OnLoginPasswordHashed(playerid)
 /// <param name="playerid">The ID of the player to diaplay the prompt to</param>
 stock TID_DisplayLoginPrompt(playerid)
 {
+    if (TID_g_sLoginState[playerid] != e_USER_LOGIN_STATE_NONE) {
+        // Something wrong?
+    }
+    else {
+        TID_g_sLoginState[playerid] = e_USER_LOGIN_STATE_P1;
+    }
+
     inline const Response(response, listitem, string:inputtext[]) {
         #pragma unused listitem
 
         if (response) {
             if (8 <= strlen(inputtext) <= 32) {
+                TID_g_sLoginState[playerid] = e_USER_LOGIN_STATE_P2;
+                
                 new 
                     userHash[65];
                 
@@ -119,15 +129,23 @@ stock TID_DisplayLoginPrompt(playerid)
                         return TID_OnUserLogin(playerid);
                     }
                     else {
+                        // TO-DO Allow max 3 tries
                         Dialog_ShowCallback(playerid, using inline Response, DIALOG_STYLE_PASSWORD, "Contraseña incorrecta", "Para verificar tu identidad, ingresa tu contraseña:", "Continuar", "Cancelar");
                     }
                 }
                 BCrypt_CheckInline(inputtext, userHash, using inline OnCompared);
             }
+            else {
+                TID_g_sLoginState[playerid] = e_USER_LOGIN_STATE_P1;
+                Dialog_ShowCallback(playerid, using inline Response, DIALOG_STYLE_PASSWORD, "Revisa tu contraseña", "Para verificar tu identidad, ingresa tu contraseña:", "Continuar", "Cancelar");
+            }
+        }
+        else {
+            TID_g_sLoginState[playerid] = e_USER_LOGIN_STATE_NONE;
         }
     }
 
-    if (TID_IsUserRegistered(playerid)) {
+    if (TID_IsUserRegistered(playerid) && TID_g_sLoginState[playerid] == e_USER_LOGIN_STATE_P1) {
         Dialog_ShowCallback(playerid, using inline Response, DIALOG_STYLE_PASSWORD, "Ingresa tu contraseña", "Para verificar tu identidad, ingresa tu contraseña:", "Continuar", "Cancelar");
     }
     else {

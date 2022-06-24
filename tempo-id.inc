@@ -18,16 +18,22 @@
 
 ==============================================================================*/
 
-// Third-party dependencies 
-#include <a_samp>
+#include <utils>
+#include <logger>
+#include <uuid>
+#include <samp_bcrypt>
 
 // YSI Libraries
 #include <YSI_Visual\y_dialog>
-#include <YSI_Server\y_colours>
+
+#include <YSI_Server\y_colors>
+
 #include <YSI_Coding\y_timers>
+
 #include <YSI_Coding\y_inline>
 #include <YSI_Extra\y_inline_bcrypt>
 #include <YSI_Extra\y_inline_mysql>
+#include <YSI_Extra\y_inline_timers>
 
 #include <YSI_Coding\y_hooks>
 
@@ -37,47 +43,13 @@
 
 ==============================================================================*/
 
-#if !defined _INC_tid_mysql
-    #tryinclude <tid_mysql>
-#endif
-#if !defined _INC_tid_menu
-    #tryinclude <tid_menu>
-#endif
-#if !defined _INC_tid_account
-    #tryinclude <tid_account>
-#endif
-#if !defined _INC_tid_signup
-    #tryinclude <tid_signup>
-#endif
-#if !defined _INC_tid_login
-    #tryinclude <tid_login>
-#endif
+#include <tempoid\core\tid_mysql>
+#include <tempoid\core\tid_menu>
+#include <tempoid\core\tid_account>
+#include <tempoid\core\tid_signup>
+#include <tempoid\core\tid_login>
 
-//
-#include <user-interface\ui_intro>
+#include <tempoid\user-interface\ui_intro>
+#include <tempoid\user-interface\ui_menu>
 
-hook OnGameModeInit() 
-{
-    print("\n====================================");
-    print("\tTempo ID v0.1 loaded");
-    print("\t(c) Martin Santiago");
-    print("====================================\n");
-    return 1;
-}
-
-hook OnIncomingConnection(playerid, ip_address[], port)
-{
-    printf("Incoming connection for player ID %i [IP/port: %s:%i]", playerid, ip_address, port);
-    return 1;    
-}
-
-hook OnPlayerConnect(playerid) 
-{
-    SetPlayerColor(playerid, Y_WHITESMOKE);
-    
-    SetSpawnInfo(playerid, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-    SpawnPlayer(playerid);
-    
-    Cutscene_StartLogin(playerid);
-    return 1;
-}
+#include <tempoid\cutscenes\cs_background>
