@@ -65,7 +65,7 @@ public TID_OnUserDataLoaded(playerid)
 
 /// <summary>Returns the user's UUID</summary>
 /// <param name="playerid">The ID of the player to get the UUID from</param>
-stock TID_GetUserUUID(playerid, &uuid[])
+stock TID_GetUserUUID(playerid)
 {
     return TID_g_sUserUUID[playerid];
 }

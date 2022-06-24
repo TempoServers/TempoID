@@ -24,7 +24,7 @@ timer AutoDisconnect[120000](playerid) {
 timer tShowPlayerTempoID[4000](playerid) {
     UI_ShowPlayerTempoID(playerid);
     defer AutoDisconnect(playerid);  
-}|
+}
 
 hook OnPlayerConnect(playerid) 
 {

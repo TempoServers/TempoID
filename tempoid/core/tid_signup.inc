@@ -46,7 +46,7 @@ stock TID_DisplayRegisterPrompt(playerid)
 
         if (response) {
             if (TID_g_sRegistrationState[playerid] == e_USER_REGISTRATION_STATE_E1) {
-                if (!(ValidEmail(inputtext))) {
+                if (!(Utils_ValidEmail(inputtext))) {
                     TID_DisplayRegisterPrompt(playerid);
                     return 0;
                 }
@@ -61,7 +61,7 @@ stock TID_DisplayRegisterPrompt(playerid)
         return 1;
     }
 
-    if (!TID_IsUserRegistered(playerid) && TID_g_sRegistrationState == e_USER_REGISTRATION_STATE_E1) {
+    if (!TID_IsUserRegistered(playerid) && TID_g_sRegistrationState[playerid] == e_USER_REGISTRATION_STATE_E1) {
         new contentDialog[300];
         format(contentDialog, sizeof(contentDialog), "Si olvidas tu contraseña, puedes recuperarla usando tu correo.\n\nSolo usaremos tu correo \
                                                         con fines de verificar tu identidad.\nNo te enviaremos spam ni venderemos tus datos a terceros.");
@@ -109,6 +109,7 @@ TID_RequestPassword(playerid)
         }
     }
 
+    new contentDialog[300];
     format(contentDialog, sizeof(contentDialog), "Debe tener entre 8 - 32 caracteres.\n\nNo compartas tu contraseña con nadie ni uses una \nque ya hayas usado en otro servidor. \
                                                   \n\nNosotros nunca te pediremos tu contraseña.");
     Dialog_ShowCallback(playerid, using inline Response, DIALOG_STYLE_PASSWORD, "Ingresa una contraseña segura", contentDialog, "Continuar", "Cancelar");

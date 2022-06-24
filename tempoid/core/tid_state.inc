@@ -35,7 +35,7 @@ E_USER_STATE:   TID_g_sUserState           [MAX_PLAYERS];
 
 hook OnIncomingConnection(playerid, ip_address[], port)
 {
-    #pragma unused ip_adress, port
+    #pragma unused ip_address, port
     TID_SetUserStatus(playerid, E_USER_STATE_CONNECTING);
     return 1;    
 }

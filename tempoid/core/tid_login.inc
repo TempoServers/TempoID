@@ -16,7 +16,7 @@
 #include <YSI_Coding\y_hooks>
 
 
-forward TID_OnUserLogin(playerid, bool:auto = false);
+forward TID_OnUserLogin(playerid, bool:auto);
 forward TID_OnLoginPasswordHashed(playerid);
 
 enum e_USER_LOGIN_STATE
@@ -30,10 +30,15 @@ enum e_USER_LOGIN_STATE
 }
 
 stock static 
-e_USER_LOGIN_STATE:     TID_g_sLoginState       [playerid];
+e_USER_LOGIN_STATE:     TID_g_sLoginState       [MAX_PLAYERS];
 
+public TID_OnUserLogin(playerid)
+{
+    Logger_Log("[OnUserLogin] Callback called");
+    return 0;
+}
 
-TID_AutoLoginUser(playerid)
+stock TID_AutoLoginUser(playerid)
 {
     TID_g_sLoginState[playerid] = e_USER_LOGIN_STATE_AUTO;
 
@@ -126,7 +131,7 @@ stock TID_DisplayLoginPrompt(playerid)
                 inline const OnCompared(bool:match) {
                     if (match) {
                         TID_SetUserStatus(playerid, E_USER_STATE_LOGGED_IN);
-                        return TID_OnUserLogin(playerid);
+                        return TID_OnUserLogin(playerid, false);
                     }
                     else {
                         // TO-DO Allow max 3 tries

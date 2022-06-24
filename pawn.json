@@ -5,10 +5,13 @@
 	"output": "gamemodes/test.amx",
 	"dependencies": [
 		"pawn-lang/samp-stdlib",
+		"Southclaws/samp-logger",
 		"pBlueG/SA-MP-MySQL:R41-4",
-		"pawn-lang/YSI-Includes:v5.06.1932",
-		"Southclaws/samp-logger:1.5.0",
-		"TempoServers/Utils"
+		"TempoServers/Utils",
+		"Southclaws/pawn-uuid:1.0.1",
+		"TempoServers/AndroidCheck:1.2",
+		"Sreyas-Sreelal/samp-bcrypt:0.3.4",
+		"nexquery/samp-textdraw-streamer:v1.6.2"
 	],
 	"runtime": {
 		"version": "0.3.7",

@@ -24,6 +24,8 @@
 #include <samp_bcrypt>
 
 // YSI Libraries
+#define YSI_NO_HEAP_MALLOC
+
 #include <YSI_Visual\y_dialog>
 
 #include <YSI_Server\y_colors>
@@ -43,8 +45,13 @@
 
 ==============================================================================*/
 
+#if !defined TEMPO_SERVICE_ID
+    #error Define TEMPO_SERVICE_ID before using Tempo ID
+#endif
+
 #include <tempoid\core\tid_mysql>
 #include <tempoid\core\tid_menu>
+#include <tempoid\core\tid_state>
 #include <tempoid\core\tid_account>
 #include <tempoid\core\tid_signup>
 #include <tempoid\core\tid_login>
