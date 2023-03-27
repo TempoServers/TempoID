@@ -1,47 +1,24 @@
-#if defined _INC_TempoID
+#if defined _tempoid_included
     #endinput
 #endif
-#define _INC_TempoID
+#define _tempoid_included
 
 /*==============================================================================
 
 
 	Tempo ID
 
-		Copyright (C) 2022 Martin Santiago
+		              GNU GENERAL PUBLIC LICENSE
+                       Version 3, 29 June 2007
 
-		This Source Code Form is subject to the terms of the Mozilla Public
-		License, v. 2.0. If a copy of the MPL was not distributed with this
-		file, You can obtain one at http://mozilla.org/MPL/2.0/.
+	Authors:
+		- Martín Santiago (@martiagop)
 
+	Contributors:
+		-
 
-
-==============================================================================*/
-
-#include <utils>
-#include <logger>
-#include <uuid>
-#include <samp_bcrypt>
-
-// YSI Libraries
-#define YSI_NO_HEAP_MALLOC
-
-#include <YSI_Visual\y_dialog>
-
-#include <YSI_Server\y_colors>
-
-#include <YSI_Coding\y_timers>
-
-#include <YSI_Coding\y_inline>
-#include <YSI_Extra\y_inline_bcrypt>
-#include <YSI_Extra\y_inline_mysql>
-#include <YSI_Extra\y_inline_timers>
-
-#include <YSI_Coding\y_hooks>
-
-/*==============================================================================
-
-	Modules
+	Special Thanks:
+		-
 
 ==============================================================================*/
 
@@ -49,14 +26,64 @@
     #error Define TEMPO_SERVICE_ID before using Tempo ID
 #endif
 
-#include <tempoid\core\tid_mysql>
-#include <tempoid\core\tid_menu>
-#include <tempoid\core\tid_state>
-#include <tempoid\core\tid_account>
-#include <tempoid\core\tid_signup>
-#include <tempoid\core\tid_login>
+#include <Logger>
+
+
+
+#include <utils>
+#include <uuid>
+#include <samp_bcrypt>
+
+// YSI Libraries
+#define YSI_NO_HEAP_MALLOC
+
+#include <YSI_Visual\y_dialog>
+#include <YSI_Server\y_colors>
+#include <YSI_Coding\y_timers>
+#include <YSI_Coding\y_inline>
+#include <YSI_Extra\y_inline_bcrypt>
+#include <YSI_Extra\y_inline_mysql>
+#include <YSI_Extra\y_inline_timers>
+
+/*==============================================================================
+
+	Modules
+
+==============================================================================*/
+
+#include <TempoID\constants>
+#include <TempoID\tid_mysql>
+#include <TempoID\tid_account>
+#include <TempoID\tid_menu>
+#include <TempoID\tid_signup>
+#include <TempoID\tid_login>
+#include <TempoID\tid_vip>
 
 #include <tempoid\user-interface\ui_intro>
 #include <tempoid\user-interface\ui_menu>
 
 #include <tempoid\cutscenes\cs_background>
+
+/*==============================================================================
+
+	Init
+
+==============================================================================*/
+
+#include <YSI_Coding\y_hooks>
+
+hook OnGameModeInit() 
+{
+    Logger_Log("[Tempo ID] Trying to load Tempo ID services in this server.");
+    // TO-DO: Setting up closest coords to the cutscene
+    AddPlayerClass(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0); // Allow spawn of the player
+    return 0;
+}
+
+hook OnIncomingConnection(playerid, ip_address[], port)
+{
+    TID_SetUserStatus(playerid, E_USER_STATE_CONNECTING);
+    return 0;    
+}
+
+// EOF
