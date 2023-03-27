@@ -17,6 +17,7 @@
 
 ==============================================================================*/
 
+#include <YSI_Extra\y_inline_mysql>
 #include <YSI_Coding\y_hooks>
 
 

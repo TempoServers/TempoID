@@ -7,11 +7,11 @@
 		"pawn-lang/samp-stdlib",
 		"Southclaws/samp-logger",
 		"pBlueG/SA-MP-MySQL:R41-4",
-		"TempoServers/Utils",
 		"Southclaws/pawn-uuid:1.0.1",
 		"Sreyas-Sreelal/samp-bcrypt:0.3.4",
 		"nexquery/samp-textdraw-streamer:v1.6.2",
-		"pawn-lang/YSI-Includes@5.x"
+		"pawn-lang/YSI-Includes@5.x",
+		"TempoServers/Utils"
 	],
 	"runtime": {
 		"version": "0.3.7",
@@ -50,5 +50,23 @@
 		"conncookies": true,
 		"cookielogging": false,
 		"output": true
-	}
+	},
+	"builds": [
+		{
+			"name": "dev",
+			"version": "3.10.10",
+			"args": [
+				"-;+",
+				"-(+",
+				"-d3",
+				"-E",
+				"-Z",
+				"-r"
+			],
+			"includes": [
+				"TempoID"
+			],
+			"compiler": {}
+		}
+	]
 }

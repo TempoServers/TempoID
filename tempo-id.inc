@@ -27,10 +27,9 @@
 #endif
 
 #include <Logger>
+#include <a_samp>
 
 
-
-#include <utils>
 #include <uuid>
 #include <samp_bcrypt>
 
@@ -42,7 +41,6 @@
 #include <YSI_Coding\y_timers>
 #include <YSI_Coding\y_inline>
 #include <YSI_Extra\y_inline_bcrypt>
-#include <YSI_Extra\y_inline_mysql>
 #include <YSI_Extra\y_inline_timers>
 
 /*==============================================================================
@@ -50,6 +48,7 @@
 	Modules
 
 ==============================================================================*/
+
 
 #include <TempoID\constants>
 #include <TempoID\tid_mysql>
