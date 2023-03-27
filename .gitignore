@@ -48,3 +48,9 @@ samp.ban
 #
 
 *.sublime-workspace
+
+
+#
+# Enviroment files
+#
+*_mysql.ini
