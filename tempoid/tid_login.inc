@@ -29,14 +29,14 @@ public TID_OnUserLogin(playerid, autolog)
 {    
     if (autolog) return 1;
     TID_AddUserAccess(playerid);
-    UI_ShowPlayerLoadingScreen(playerid, "Cargando cuenta");
+    //UI_ShowPlayerLoadingScreen(playerid, "Cargando cuenta");
     return 0;
 }
 
 public TID_OnUserAutoLogin(playerid)
 {    
     TID_tFinishIntro(playerid);
-    UI_ShowPlayerLoadingScreen(playerid, "Logueado automaticamente");
+    //UI_ShowPlayerLoadingScreen(playerid, "Logueado automaticamente");
 
     Logger_Dbg("tempo-id", "[TempoID] User automatically logged in", Logger_P(playerid));
 

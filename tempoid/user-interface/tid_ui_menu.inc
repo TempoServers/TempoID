@@ -1,9 +1,9 @@
 /*==============================================================================
 
 
-	Tempo Roleplay
+	Tempo ID
 
-		Copyright (C) 2022 Martin Santiago & Victor Rivera
+		Copyright (C) 2022 Tempo Enterprise and contributors
 
 		This Source Code Form is subject to the terms of the Mozilla Public
 		License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -13,11 +13,18 @@
 
 ==============================================================================*/
 
+// Class TIDUserInterface
+
 #include <YSI_Coding\y_hooks>
+
+// TO-DO: Rename variables to better convention
+// TIDUI_sBackgroundXXX[]
+// TIDUI_sButtonYYY[]
+// TIDUI_sIndicatorZZZ[]
 
 
 static
-    Text:bgBannerUp,
+    Text:TIDUI_sBackgroundBannerUp,
     Text:bgBannerDown,
     Text:bgMain,
     Text:bgButtonOne,
@@ -42,20 +49,21 @@ static
     Text:newTime_two,
     Text:newHeader_two;
 
-hook OnGameModeInit() {
-    bgBannerUp = TextDrawCreate(420.000000, 215.000000, "loadsc14:loadsc14");
-    TextDrawFont(bgBannerUp, 4);
-    TextDrawLetterSize(bgBannerUp, 0.600000, 2.000000);
-    TextDrawTextSize(bgBannerUp, 158.500000, 143.000000);
-    TextDrawSetOutline(bgBannerUp, 1);
-    TextDrawSetShadow(bgBannerUp, 0);
-    TextDrawAlignment(bgBannerUp, 1);
-    TextDrawColor(bgBannerUp, -1);
-    TextDrawBackgroundColor(bgBannerUp, 255);
-    TextDrawBoxColor(bgBannerUp, 50);
-    TextDrawUseBox(bgBannerUp, true);
-    TextDrawSetProportional(bgBannerUp, true);
-    TextDrawSetSelectable(bgBannerUp, false);
+hook OnGameModeInit() 
+{
+    TIDUI_sBackgroundBannerUp = TextDrawCreate(420.000000, 215.000000, "loadsc14:loadsc14");
+    TextDrawFont(TIDUI_sBackgroundBannerUp, 4);
+    TextDrawLetterSize(TIDUI_sBackgroundBannerUp, 0.600000, 2.000000);
+    TextDrawTextSize(TIDUI_sBackgroundBannerUp, 158.500000, 143.000000);
+    TextDrawSetOutline(TIDUI_sBackgroundBannerUp, 1);
+    TextDrawSetShadow(TIDUI_sBackgroundBannerUp, 0);
+    TextDrawAlignment(TIDUI_sBackgroundBannerUp, 1);
+    TextDrawColor(TIDUI_sBackgroundBannerUp, -1);
+    TextDrawBackgroundColor(TIDUI_sBackgroundBannerUp, 255);
+    TextDrawBoxColor(TIDUI_sBackgroundBannerUp, 50);
+    TextDrawUseBox(TIDUI_sBackgroundBannerUp, true);
+    TextDrawSetProportional(TIDUI_sBackgroundBannerUp, true);
+    TextDrawSetSelectable(TIDUI_sBackgroundBannerUp, false);
 
     bgBannerDown = TextDrawCreate(420.000000, 72.000000, "loadsc5:loadsc5");
     TextDrawFont(bgBannerDown, 4);
@@ -403,11 +411,17 @@ hook OnPlayerClickTextDraw(playerid, clickedid) {
     return 1;
 }
 
+hook TID_OnUserLogin(playerid)
+{
+    UI_HidePlayerTempoID(playerid);
+    return 1;
+}
+
 /// <summary>* * *</summary>
 /// <param name="playerid">The ID of the player</param>
 /// <seealso name="UI_HidePlayerTempoID"/>
 stock UI_ShowPlayerTempoID(playerid) {
-    TextDrawShowForPlayer(playerid, bgBannerUp);
+    TextDrawShowForPlayer(playerid, TIDUI_sBackgroundBannerUp);
     TextDrawShowForPlayer(playerid, bgBannerDown);
     TextDrawShowForPlayer(playerid, bgMain);
     TextDrawShowForPlayer(playerid, bgButtonOne);
@@ -430,7 +444,7 @@ stock UI_ShowPlayerTempoID(playerid) {
 /// <param name="playerid">The ID of the player</param>
 /// <seealso name="UI_ShowPlayerTempoID"/>
 stock UI_HidePlayerTempoID(playerid) {
-    TextDrawHideForPlayer(playerid, bgBannerUp);
+    TextDrawHideForPlayer(playerid, TIDUI_sBackgroundBannerUp);
     TextDrawHideForPlayer(playerid, bgBannerDown);
     TextDrawHideForPlayer(playerid, bgMain);
     TextDrawHideForPlayer(playerid, bgButtonOne);
@@ -448,3 +462,5 @@ stock UI_HidePlayerTempoID(playerid) {
     TextDrawHideForPlayer(playerid, aestheticDesing2);
     CancelSelectTextDraw(playerid);
 }
+
+// EOF

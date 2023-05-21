@@ -38,11 +38,13 @@ hook OnGameModeInit()
 
     TID_g_sMySQL = mysql_connect_file(TID_MYSQL_FILE);
 
-    if (mysql_errno(TID_GetMySQLHandle()) != 0) { // If there was an error trying to connect to database
+    if (mysql_errno(TID_GetMySQLHandle()) != 0) // If there was an error trying to connect to database
+    { 
         Logger_Log("[TempoID/MySQL] There was an error trying to connect to database.", Logger_I("errcode", mysql_errno()));
         // TO-DO: Callback promise when an error occurs connecting
     }
-    else {
+    else 
+    {
         Logger_Log("[TempoID/MySQL] Successfully connected with database.");
     }
              
@@ -57,7 +59,8 @@ hook OnGameModeExit()
 
 hook OnQueryError(errorid, const error[], const callback[], const query[], MySQL:handle)
 {
-    if (handle == TID_GetMySQLHandle()) {
+    if (handle == TID_GetMySQLHandle()) 
+    {
         switch (errorid)
         {
             case CR_SERVER_LOST:
@@ -67,7 +70,7 @@ hook OnQueryError(errorid, const error[], const callback[], const query[], MySQL
             }
         }
     }
-    return 1;
+    return 0;
 }
 
 

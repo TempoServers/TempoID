@@ -16,7 +16,7 @@
 	"runtime": {
 		"version": "0.3.7",
 		"mode": "server",
-		"rcon_password": "password",
+		"rcon_password": "TempoPswDefault",
 		"port": 7777,
 		"hostname": "SA-MP Server",
 		"maxplayers": 50,

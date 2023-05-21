@@ -28,8 +28,6 @@
 
 #include <Logger>
 #include <a_samp>
-
-
 #include <uuid>
 #include <samp_bcrypt>
 
@@ -49,6 +47,11 @@
 
 ==============================================================================*/
 
+#include <TempoID\user-interface\tid_ui_brightness>
+#include <TempoID\user-interface\tid_ui_menu>
+#include <tempoid\user-interface\tid_ui_intro>
+
+#include <TempoID\cutscenes\tid_cs_background>
 
 #include <TempoID\constants>
 #include <TempoID\tid_mysql>
@@ -58,10 +61,8 @@
 #include <TempoID\tid_login>
 #include <TempoID\tid_vip>
 
-#include <tempoid\user-interface\ui_intro>
-#include <tempoid\user-interface\ui_menu>
 
-#include <tempoid\cutscenes\cs_background>
+
 
 /*==============================================================================
 

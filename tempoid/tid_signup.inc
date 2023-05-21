@@ -32,7 +32,7 @@ static stock
 
 public TID_OnUserRegistered(playerid)
 {
-    UI_HidePlayerLoadingScreen(playerid);
+    //UI_HidePlayerLoadingScreen(playerid);
     TID_SetUserStatus(playerid, E_USER_STATE_LOGGED_IN);
     SetTimerEx("TID_OnUserLogin", 2000, false, "ii", playerid, false);
     return 1;
@@ -93,7 +93,7 @@ TID_RequestPassword(playerid)
                 inline const OnPasswordHashed(string:result[])
                 {
                     UI_HidePlayerTempoID(playerid);
-                    UI_ShowPlayerLoadingScreen(playerid);
+                    //UI_ShowPlayerLoadingScreen(playerid);
 
                     StrCpy(TID_g_UserPassword[playerid], result);
 

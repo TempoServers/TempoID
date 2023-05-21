@@ -1848,6 +1848,7 @@
 			<referrer name="Iter_Init_Internal"/>
 			<referrer name="Iter_OnPlayerConnect"/>
 			<referrer name="Iter_OnPlayerDisconnect"/>
+			<referrer name="UI_SetPlayerTextDrawString"/>
 			<referrer name="MySQL_PQueryInline"/>
 			<referrer name="MySQL_TQueryInline"/>
 			<library>y_compilerdata</library>  <remarks>  The number of bytes in a cell.  There is the number of bits as a constant  built-in, but not the number of bytes.  </remarks> 
@@ -2190,6 +2191,11 @@
 			<referrer name="BCrypt_CheckInline"/>
 			<referrer name="@y_inlineTimerCount"/>
 			<referrer name="Timer_CreateCallback"/>
+			<referrer name="_@yHOnGameModeInit@01"/>
+			<referrer name="_@yHOnPlayerConnect@01"/>
+			<referrer name="_@yHOnGameModeInit@02"/>
+			<referrer name="_@yHOnGameModeInit@03"/>
+			<referrer name="Cutscene_StopBackground"/>
 			<referrer name="TID_OnUserDataLoaded"/>
 			<referrer name="Utils_IsValidEmail"/>
 			<referrer name="TID_OnUserRegistered"/>
@@ -2198,9 +2204,6 @@
 			<referrer name="TID_AutoLoginUser"/>
 			<referrer name="TID_DisplayLoginPrompt"/>
 			<referrer name="TID_LoadUserMembership"/>
-			<referrer name="_@yHOnGameModeInit@07"/>
-			<referrer name="_@yHOnGameModeInit@08"/>
-			<referrer name="Cutscene_StopBackground"/>
 		</member>
 		<member name="C:hash_bernstein" value="0">
 			<tagname value="e_HASH_TYPE"/>
@@ -2313,16 +2316,28 @@
 			<referrer name="BCrypt_CheckInline"/>
 			<referrer name="@y_inlineTimerStart"/>
 			<referrer name="@yH_OnGameModeInit@01"/>
-			<referrer name="@yH_OnGameModeExit@01"/>
-			<referrer name="@yH_OnQueryError@01"/>
-			<referrer name="@yH_OnPlayerConnect@02"/>
-			<referrer name="@yH_OnPlayerDisconnect@02"/>
+			<referrer name="_@yHOnGameModeInit@01"/>
+			<referrer name="@yH_OnPlayerConnect@01"/>
+			<referrer name="_@yHOnPlayerConnect@01"/>
+			<referrer name="@yH_OnGameModeInit@02"/>
+			<referrer name="_@yHOnGameModeInit@02"/>
+			<referrer name="@yH_OnPlayerClickTextDraw@02"/>
+			<referrer name="@yH_TID_OnUserLogin@02"/>
+			<referrer name="@yH_OnGameModeInit@03"/>
+			<referrer name="_@yHOnGameModeInit@03"/>
+			<referrer name="@yH_OnPlayerConnect@03"/>
+			<referrer name="Cutscene_StartBackground"/>
+			<referrer name="@yH_OnGameModeInit@04"/>
+			<referrer name="@yH_OnGameModeExit@04"/>
+			<referrer name="@yH_OnQueryError@04"/>
+			<referrer name="@yH_OnPlayerConnect@05"/>
+			<referrer name="@yH_OnPlayerDisconnect@05"/>
 			<referrer name="TID_OnUserDataLoaded"/>
 			<referrer name="Utils_IsValidEmail"/>
 			<referrer name="_yT@ClearingChat"/>
 			<referrer name="_yT@TID_tFinishIntro"/>
-			<referrer name="@yH_OnPlayerConnect@03"/>
-			<referrer name="@yH_OnPlayerDisconnect@03"/>
+			<referrer name="@yH_OnPlayerConnect@06"/>
+			<referrer name="@yH_OnPlayerDisconnect@06"/>
 			<referrer name="TID_IsEmailUsed"/>
 			<referrer name="MySQL_PQueryInline"/>
 			<referrer name="MySQL_TQueryInline"/>
@@ -2333,17 +2348,10 @@
 			<referrer name="ORM_LoadInline"/>
 			<referrer name="ORM_SaveInline"/>
 			<referrer name="TID_OnUserAutoLogin"/>
-			<referrer name="@yH_TID_OnUserLogin@06"/>
-			<referrer name="@yH_OnPlayerDisconnect@06"/>
-			<referrer name="@yH_OnGameModeInit@07"/>
-			<referrer name="_@yHOnGameModeInit@07"/>
-			<referrer name="@yH_OnPlayerConnect@07"/>
-			<referrer name="@yH_OnGameModeInit@08"/>
-			<referrer name="_@yHOnGameModeInit@08"/>
-			<referrer name="@yH_OnPlayerClickTextDraw@08"/>
-			<referrer name="Cutscene_StartBackground"/>
-			<referrer name="@yH_OnGameModeInit@09"/>
-			<referrer name="@yH_OnIncomingConnection@09"/>
+			<referrer name="@yH_TID_OnUserLogin@09"/>
+			<referrer name="@yH_OnPlayerDisconnect@09"/>
+			<referrer name="@yH_OnGameModeInit@0@"/>
+			<referrer name="@yH_OnIncomingConnection@0@"/>
 		</member>
 		<member name="C:ucharmax" value="16777215">
 			<referrer name="YSI_IsLocalVarPackedString__"/>
@@ -2610,7 +2618,7 @@
 			<referrer name="_Timer_C"/>
 			<referrer name="_yT@ClearingChat"/>
 			<referrer name="_yT@TID_tFinishIntro"/>
-			<referrer name="_@yHOnPlayerConnect@03"/>
+			<referrer name="_@yHOnPlayerConnect@06"/>
 			<library>y_shortvar</library>  <remarks>  A "nul" target - send things there if they need ignoring or if a  parameter needs ignoring.  Not guaranteed to keep its value for any  length of time.  If you set it, don't expect it to remain the same!  </remarks> 
 		</member>
 		<member name="F:INDIRECTION_COUNT">
@@ -2873,7 +2881,7 @@
 			<referrer name="Dialog_ShowPlayerDialog"/>
 			<referrer name="_yT@ClearingChat"/>
 			<referrer name="_yT@TID_tFinishIntro"/>
-			<referrer name="_@yHOnPlayerConnect@03"/>
+			<referrer name="_@yHOnPlayerConnect@06"/>
 			<library>y_shortvar</library>  <remarks>  A "nul" target - send things there if they need ignoring or if a  parameter needs ignoring.  Not guaranteed to keep its value for any  length of time.  If you set it, don't expect it to remain the same!  </remarks> 
 		</member>
 		<member name="F:MAX_VIP_DURATION">
@@ -2905,20 +2913,23 @@
 			<referrer name="@yH_OnPlayerDisconnect@000"/>
 			<referrer name="@yH_OnDialogResponse@000"/>
 			<referrer name="@yH_OnGameModeInit@01"/>
-			<referrer name="@yH_OnGameModeExit@01"/>
-			<referrer name="@yH_OnQueryError@01"/>
-			<referrer name="@yH_OnPlayerConnect@02"/>
-			<referrer name="@yH_OnPlayerDisconnect@02"/>
+			<referrer name="@yH_OnPlayerConnect@01"/>
+			<referrer name="@yH_OnGameModeInit@02"/>
+			<referrer name="@yH_OnPlayerClickTextDraw@02"/>
+			<referrer name="@yH_TID_OnUserLogin@02"/>
+			<referrer name="@yH_OnGameModeInit@03"/>
 			<referrer name="@yH_OnPlayerConnect@03"/>
-			<referrer name="@yH_OnPlayerDisconnect@03"/>
-			<referrer name="@yH_TID_OnUserLogin@06"/>
+			<referrer name="@yH_OnGameModeInit@04"/>
+			<referrer name="@yH_OnGameModeExit@04"/>
+			<referrer name="@yH_OnQueryError@04"/>
+			<referrer name="@yH_OnPlayerConnect@05"/>
+			<referrer name="@yH_OnPlayerDisconnect@05"/>
+			<referrer name="@yH_OnPlayerConnect@06"/>
 			<referrer name="@yH_OnPlayerDisconnect@06"/>
-			<referrer name="@yH_OnGameModeInit@07"/>
-			<referrer name="@yH_OnPlayerConnect@07"/>
-			<referrer name="@yH_OnGameModeInit@08"/>
-			<referrer name="@yH_OnPlayerClickTextDraw@08"/>
-			<referrer name="@yH_OnGameModeInit@09"/>
-			<referrer name="@yH_OnIncomingConnection@09"/>
+			<referrer name="@yH_TID_OnUserLogin@09"/>
+			<referrer name="@yH_OnPlayerDisconnect@09"/>
+			<referrer name="@yH_OnGameModeInit@0@"/>
+			<referrer name="@yH_OnIncomingConnection@0@"/>
 			<library>amx_assembly addressof</library>
 		</member>
 		<member name="F:Q@">
@@ -2929,6 +2940,12 @@
 		<member name="F:SAMP_INCLUDES_VERSION">
 			<attribute name="public"/>
 			<p/>
+		</member>
+		<member name="F:TIDUI_sBackgroundBannerUp">
+			<tagname value="Text"/>
+			<referrer name="_@yHOnGameModeInit@02"/>
+			<referrer name="UI_ShowPlayerTempoID"/>
+			<referrer name="UI_HidePlayerTempoID"/>
 		</member>
 		<member name="F:TID_g_UserEmail">
 			<referrer name="TID_DisplayRegisterPrompt"/>
@@ -2945,13 +2962,13 @@
 		</member>
 		<member name="F:TID_g_sMySQL">
 			<tagname value="MySQL"/>
-			<referrer name="_@yHOnGameModeInit@01"/>
+			<referrer name="_@yHOnGameModeInit@04"/>
 			<referrer name="TID_GetMySQLHandle"/>
 			Connection handle with database in Tempo ID module
 		</member>
 		<member name="F:TID_g_sUserCache">
 			<tagname value="Cache"/>
-			<referrer name="_@yHOnPlayerDisconnect@02"/>
+			<referrer name="_@yHOnPlayerDisconnect@05"/>
 			<referrer name="TID_OnUserDataLoaded"/>
 			<referrer name="TID_GetUserCache"/>
 		</member>
@@ -2959,7 +2976,7 @@
 			<referrer name="TID_GetUserDevice"/>
 		</member>
 		<member name="F:TID_g_sUserName">
-			<referrer name="_@yHOnPlayerConnect@02"/>
+			<referrer name="_@yHOnPlayerConnect@05"/>
 			<referrer name="TID_GetUserName"/>
 		</member>
 		<member name="F:TID_g_sUserStatus">
@@ -2977,7 +2994,32 @@
 			<referrer name="YVA2_DummyPush"/>
 			<library>y_shortvar</library>  <remarks>  <c>true</c>, but usable in tests without a constant expression warning.  </remarks> 
 		</member>
+		<member name="F:UI_sBlackScreen">
+			<tagname value="Text"/>
+			<referrer name="_@yHOnGameModeInit@01"/>
+			<referrer name="UI_ShowPlayerBlackScreen"/>
+			<referrer name="UI_HidePlayerBlackScreen"/>
+		</member>
+		<member name="F:UI_sIntroFirstText">
+			<tagname value="Text"/>
+			<referrer name="_@yHOnGameModeInit@03"/>
+			<referrer name="UI_ShowPlayerIntro"/>
+			<referrer name="UI_HidePlayerIntro"/>
+		</member>
+		<member name="F:UI_sIntroSecondText">
+			<tagname value="Text"/>
+			<referrer name="_@yHOnGameModeInit@03"/>
+			<referrer name="UI_ShowPlayerIntro"/>
+			<referrer name="UI_HidePlayerIntro"/>
+		</member>
+		<member name="F:UI_sPlayerBrightness">
+			<tagname value="PlayerText"/>
+			<referrer name="_@yHOnPlayerConnect@01"/>
+			<referrer name="UI_SetPlayerBrightness"/>
+		</member>
 		<member name="F:UNIQUE_SYMBOL_DOESNT_EXIST">
+		</member>
+		<member name="F:UNIQUE_SYMBOL_LESS_THAN_0063">
 		</member>
 		<member name="F:UNIQUE_SYMBOL_LESS_THAN_0063">
 		</member>
@@ -3640,6 +3682,8 @@
 		</member>
 		<member name="F:Y_UNIQUE_0000_0063_CALLED">
 		</member>
+		<member name="F:Y_UNIQUE_0000_0063_CALLED">
+		</member>
 		<member name="F:_0">
 			<summary>  The first parameter in a <emph>y_functional</emph> lambda function.  This is implicitly declared.  </summary>  <!--  <remarks>  Hide future declarations with <c>_0</c> prefix.  <p/>  Note that the actual hiding itself is done by an XML comment started  earlier and ended here.  </remarks> 
 		</member>
@@ -4108,6 +4152,14 @@
 		</member>
 		<member name="F:__file">
 		</member>
+		<member name="F:__file">
+		</member>
+		<member name="F:__file">
+		</member>
+		<member name="F:__file">
+		</member>
+		<member name="F:__file">
+		</member>
 		<member name="F:__gOnce">
 			<referrer name="OnPlayerStateChange"/>
 			<p/>
@@ -4126,57 +4178,45 @@
 		</member>
 		<member name="F:aestheticDesign1">
 			<tagname value="Text"/>
-			<referrer name="_@yHOnGameModeInit@08"/>
+			<referrer name="_@yHOnGameModeInit@02"/>
 			<referrer name="UI_ShowPlayerTempoID"/>
 			<referrer name="UI_HidePlayerTempoID"/>
 		</member>
 		<member name="F:aestheticDesing2">
 			<tagname value="Text"/>
-			<referrer name="_@yHOnGameModeInit@08"/>
+			<referrer name="_@yHOnGameModeInit@02"/>
 			<referrer name="UI_ShowPlayerTempoID"/>
 			<referrer name="UI_HidePlayerTempoID"/>
 		</member>
 		<member name="F:bgBannerDown">
 			<tagname value="Text"/>
-			<referrer name="_@yHOnGameModeInit@08"/>
-			<referrer name="UI_ShowPlayerTempoID"/>
-			<referrer name="UI_HidePlayerTempoID"/>
-		</member>
-		<member name="F:bgBannerUp">
-			<tagname value="Text"/>
-			<referrer name="_@yHOnGameModeInit@08"/>
+			<referrer name="_@yHOnGameModeInit@02"/>
 			<referrer name="UI_ShowPlayerTempoID"/>
 			<referrer name="UI_HidePlayerTempoID"/>
 		</member>
 		<member name="F:bgButtonOne">
 			<tagname value="Text"/>
-			<referrer name="_@yHOnGameModeInit@08"/>
+			<referrer name="_@yHOnGameModeInit@02"/>
 			<referrer name="UI_ShowPlayerTempoID"/>
 			<referrer name="UI_HidePlayerTempoID"/>
 		</member>
 		<member name="F:bgButtonTwo">
 			<tagname value="Text"/>
-			<referrer name="_@yHOnGameModeInit@08"/>
+			<referrer name="_@yHOnGameModeInit@02"/>
 			<referrer name="UI_ShowPlayerTempoID"/>
 			<referrer name="UI_HidePlayerTempoID"/>
 		</member>
 		<member name="F:bgMain">
 			<tagname value="Text"/>
-			<referrer name="_@yHOnGameModeInit@08"/>
+			<referrer name="_@yHOnGameModeInit@02"/>
 			<referrer name="UI_ShowPlayerTempoID"/>
 			<referrer name="UI_HidePlayerTempoID"/>
 		</member>
 		<member name="F:bgNews">
 			<tagname value="Text"/>
-			<referrer name="_@yHOnGameModeInit@08"/>
+			<referrer name="_@yHOnGameModeInit@02"/>
 			<referrer name="UI_ShowPlayerTempoID"/>
 			<referrer name="UI_HidePlayerTempoID"/>
-		</member>
-		<member name="F:blackScreen">
-			<tagname value="Text"/>
-			<referrer name="_@yHOnGameModeInit@07"/>
-			<referrer name="UI_ShowPlayerIntroScreen"/>
-			<referrer name="UI_HidePlayerIntroScreen"/>
 		</member>
 		<member name="F:contentDialog">
 			<referrer name="TID_DisplayRegisterPrompt"/>
@@ -4184,21 +4224,21 @@
 		</member>
 		<member name="F:descText">
 			<tagname value="Text"/>
-			<referrer name="_@yHOnGameModeInit@08"/>
+			<referrer name="_@yHOnGameModeInit@02"/>
 			<referrer name="UI_ShowPlayerTempoID"/>
 			<referrer name="UI_HidePlayerTempoID"/>
 		</member>
 		<member name="F:faqButton">
 			<tagname value="Text"/>
-			<referrer name="_@yHOnGameModeInit@08"/>
-			<referrer name="_@yHOnPlayerClickTextDraw@08"/>
+			<referrer name="_@yHOnGameModeInit@02"/>
+			<referrer name="_@yHOnPlayerClickTextDraw@02"/>
 			<referrer name="UI_ShowPlayerTempoID"/>
 			<referrer name="UI_HidePlayerTempoID"/>
 		</member>
 		<member name="F:forgotButton">
 			<tagname value="Text"/>
-			<referrer name="_@yHOnGameModeInit@08"/>
-			<referrer name="_@yHOnPlayerClickTextDraw@08"/>
+			<referrer name="_@yHOnGameModeInit@02"/>
+			<referrer name="_@yHOnPlayerClickTextDraw@02"/>
 			<referrer name="UI_ShowPlayerTempoID"/>
 			<referrer name="UI_HidePlayerTempoID"/>
 		</member>
@@ -4445,18 +4485,6 @@
 			<referrer name="Indirect_DePtr_"/>
 			<referrer name="Indirect_Init"/>
 		</member>
-		<member name="F:introFirstText">
-			<tagname value="Text"/>
-			<referrer name="_@yHOnGameModeInit@07"/>
-			<referrer name="UI_ShowPlayerIntroScreen"/>
-			<referrer name="UI_HidePlayerIntroScreen"/>
-		</member>
-		<member name="F:introSecondText">
-			<tagname value="Text"/>
-			<referrer name="_@yHOnGameModeInit@07"/>
-			<referrer name="UI_ShowPlayerIntroScreen"/>
-			<referrer name="UI_HidePlayerIntroScreen"/>
-		</member>
 		<member name="F:iterstart@Fib">
 		</member>
 		<member name="F:iterstart@Filter">
@@ -4484,62 +4512,62 @@
 		<member name="F:l_sVipBadge">
 			<tagname value="Text3D"/>
 			<referrer name="TID_LoadUserMembership"/>
-			<referrer name="_@yHOnPlayerDisconnect@06"/>
+			<referrer name="_@yHOnPlayerDisconnect@09"/>
 		</member>
 		<member name="F:loginText">
 			<tagname value="Text"/>
-			<referrer name="_@yHOnGameModeInit@08"/>
-			<referrer name="_@yHOnPlayerClickTextDraw@08"/>
+			<referrer name="_@yHOnGameModeInit@02"/>
+			<referrer name="_@yHOnPlayerClickTextDraw@02"/>
 			<referrer name="UI_ShowPlayerTempoID"/>
 			<referrer name="UI_HidePlayerTempoID"/>
 		</member>
 		<member name="F:logoTempoIDA">
 			<tagname value="Text"/>
-			<referrer name="_@yHOnGameModeInit@08"/>
+			<referrer name="_@yHOnGameModeInit@02"/>
 			<referrer name="UI_ShowPlayerTempoID"/>
 			<referrer name="UI_HidePlayerTempoID"/>
 		</member>
 		<member name="F:logoTempoIDB">
 			<tagname value="Text"/>
-			<referrer name="_@yHOnGameModeInit@08"/>
+			<referrer name="_@yHOnGameModeInit@02"/>
 			<referrer name="UI_ShowPlayerTempoID"/>
 			<referrer name="UI_HidePlayerTempoID"/>
 		</member>
 		<member name="F:newBanner_one">
 			<tagname value="Text"/>
-			<referrer name="_@yHOnGameModeInit@08"/>
+			<referrer name="_@yHOnGameModeInit@02"/>
 		</member>
 		<member name="F:newBanner_two">
 			<tagname value="Text"/>
-			<referrer name="_@yHOnGameModeInit@08"/>
+			<referrer name="_@yHOnGameModeInit@02"/>
 		</member>
 		<member name="F:newCategory_one">
 			<tagname value="Text"/>
-			<referrer name="_@yHOnGameModeInit@08"/>
+			<referrer name="_@yHOnGameModeInit@02"/>
 		</member>
 		<member name="F:newCategory_two">
 			<tagname value="Text"/>
-			<referrer name="_@yHOnGameModeInit@08"/>
+			<referrer name="_@yHOnGameModeInit@02"/>
 		</member>
 		<member name="F:newHeader_one">
 			<tagname value="Text"/>
-			<referrer name="_@yHOnGameModeInit@08"/>
+			<referrer name="_@yHOnGameModeInit@02"/>
 		</member>
 		<member name="F:newHeader_two">
 			<tagname value="Text"/>
-			<referrer name="_@yHOnGameModeInit@08"/>
+			<referrer name="_@yHOnGameModeInit@02"/>
 		</member>
 		<member name="F:newTime_one">
 			<tagname value="Text"/>
-			<referrer name="_@yHOnGameModeInit@08"/>
+			<referrer name="_@yHOnGameModeInit@02"/>
 		</member>
 		<member name="F:newTime_two">
 			<tagname value="Text"/>
-			<referrer name="_@yHOnGameModeInit@08"/>
+			<referrer name="_@yHOnGameModeInit@02"/>
 		</member>
 		<member name="F:newsTitle">
 			<tagname value="Text"/>
-			<referrer name="_@yHOnGameModeInit@08"/>
+			<referrer name="_@yHOnGameModeInit@02"/>
 			<referrer name="UI_ShowPlayerTempoID"/>
 			<referrer name="UI_HidePlayerTempoID"/>
 		</member>
@@ -4559,8 +4587,8 @@
 		</member>
 		<member name="F:signupText">
 			<tagname value="Text"/>
-			<referrer name="_@yHOnGameModeInit@08"/>
-			<referrer name="_@yHOnPlayerClickTextDraw@08"/>
+			<referrer name="_@yHOnGameModeInit@02"/>
+			<referrer name="_@yHOnPlayerClickTextDraw@02"/>
 			<referrer name="UI_ShowPlayerTempoID"/>
 			<referrer name="UI_HidePlayerTempoID"/>
 		</member>
@@ -4734,6 +4762,7 @@
 			<stacksize value="4"/>
 			<referrer name="RandomPointsInCircleDistributed"/>
 			<referrer name="RandomPointInCircleDistributed"/>
+			<referrer name="UI_SetPlayerBrightness"/>
 			<dependency name="float"/>
 			<dependency name="floatmul"/>
 			<param name="oper1">
@@ -4877,7 +4906,7 @@
 			<referrer name="InterpolateColor"/>
 			<referrer name="InterpolateColour"/>
 			<referrer name="BiGramSimilarity"/>
-			<referrer name="_@yHOnGameModeInit@09"/>
+			<referrer name="_@yHOnGameModeInit@0@"/>
 			<param name="oper">
 			</param>
 			<library>float</library> 
@@ -6174,13 +6203,13 @@
 				<paraminfo> [] </paraminfo>
 			</param>
 		</member>
-		<member name="M:@yH_OnGameModeExit@01" syntax="@yH_OnGameModeExit@01()">
+		<member name="M:@yH_OnGameModeExit@04" syntax="@yH_OnGameModeExit@04()">
 			<attribute name="public"/>
 			<stacksize value="8"/>
 			<dependency name="O@A_"/>
 			<dependency name="O@V_"/>
 			<dependency name="_@Hy"/>
-			<dependency name="_@yHOnGameModeExit@01"/>
+			<dependency name="_@yHOnGameModeExit@04"/>
 			<dependency name="true"/>
 		</member>
 		<member name="M:@yH_OnGameModeInit@01" syntax="@yH_OnGameModeInit@01()">
@@ -6192,40 +6221,49 @@
 			<dependency name="_@yHOnGameModeInit@01"/>
 			<dependency name="true"/>
 		</member>
-		<member name="M:@yH_OnGameModeInit@07" syntax="@yH_OnGameModeInit@07()">
+		<member name="M:@yH_OnGameModeInit@02" syntax="@yH_OnGameModeInit@02()">
 			<attribute name="public"/>
 			<stacksize value="8"/>
 			<dependency name="O@A_"/>
 			<dependency name="O@V_"/>
 			<dependency name="_@Hy"/>
-			<dependency name="_@yHOnGameModeInit@07"/>
+			<dependency name="_@yHOnGameModeInit@02"/>
 			<dependency name="true"/>
 		</member>
-		<member name="M:@yH_OnGameModeInit@08" syntax="@yH_OnGameModeInit@08()">
+		<member name="M:@yH_OnGameModeInit@03" syntax="@yH_OnGameModeInit@03()">
 			<attribute name="public"/>
 			<stacksize value="8"/>
 			<dependency name="O@A_"/>
 			<dependency name="O@V_"/>
 			<dependency name="_@Hy"/>
-			<dependency name="_@yHOnGameModeInit@08"/>
+			<dependency name="_@yHOnGameModeInit@03"/>
 			<dependency name="true"/>
 		</member>
-		<member name="M:@yH_OnGameModeInit@09" syntax="@yH_OnGameModeInit@09()">
+		<member name="M:@yH_OnGameModeInit@04" syntax="@yH_OnGameModeInit@04()">
 			<attribute name="public"/>
 			<stacksize value="8"/>
 			<dependency name="O@A_"/>
 			<dependency name="O@V_"/>
 			<dependency name="_@Hy"/>
-			<dependency name="_@yHOnGameModeInit@09"/>
+			<dependency name="_@yHOnGameModeInit@04"/>
 			<dependency name="true"/>
 		</member>
-		<member name="M:@yH_OnIncomingConnection@09" syntax="@yH_OnIncomingConnection@09(&amp;playerid, ip_address[], &amp;port)">
+		<member name="M:@yH_OnGameModeInit@0@" syntax="@yH_OnGameModeInit@0@()">
 			<attribute name="public"/>
 			<stacksize value="8"/>
 			<dependency name="O@A_"/>
 			<dependency name="O@V_"/>
 			<dependency name="_@Hy"/>
-			<dependency name="_@yHOnIncomingConnection@09"/>
+			<dependency name="_@yHOnGameModeInit@0@"/>
+			<dependency name="true"/>
+		</member>
+		<member name="M:@yH_OnIncomingConnection@0@" syntax="@yH_OnIncomingConnection@0@(&amp;playerid, ip_address[], &amp;port)">
+			<attribute name="public"/>
+			<stacksize value="8"/>
+			<dependency name="O@A_"/>
+			<dependency name="O@V_"/>
+			<dependency name="_@Hy"/>
+			<dependency name="_@yHOnIncomingConnection@0@"/>
 			<dependency name="true"/>
 			<param name="playerid">
 				<paraminfo> &amp; </paraminfo>
@@ -6237,13 +6275,13 @@
 				<paraminfo> &amp; </paraminfo>
 			</param>
 		</member>
-		<member name="M:@yH_OnPlayerClickTextDraw@08" syntax="@yH_OnPlayerClickTextDraw@08(&amp;playerid, &amp;clickedid)">
+		<member name="M:@yH_OnPlayerClickTextDraw@02" syntax="@yH_OnPlayerClickTextDraw@02(&amp;playerid, &amp;clickedid)">
 			<attribute name="public"/>
 			<stacksize value="8"/>
 			<dependency name="O@A_"/>
 			<dependency name="O@V_"/>
 			<dependency name="_@Hy"/>
-			<dependency name="_@yHOnPlayerClickTextDraw@08"/>
+			<dependency name="_@yHOnPlayerClickTextDraw@02"/>
 			<dependency name="true"/>
 			<param name="playerid">
 				<paraminfo> &amp; </paraminfo>
@@ -6252,13 +6290,13 @@
 				<paraminfo> &amp; </paraminfo>
 			</param>
 		</member>
-		<member name="M:@yH_OnPlayerConnect@02" syntax="@yH_OnPlayerConnect@02(&amp;playerid)">
+		<member name="M:@yH_OnPlayerConnect@01" syntax="@yH_OnPlayerConnect@01(&amp;playerid)">
 			<attribute name="public"/>
 			<stacksize value="8"/>
 			<dependency name="O@A_"/>
 			<dependency name="O@V_"/>
 			<dependency name="_@Hy"/>
-			<dependency name="_@yHOnPlayerConnect@02"/>
+			<dependency name="_@yHOnPlayerConnect@01"/>
 			<dependency name="true"/>
 			<param name="playerid">
 				<paraminfo> &amp; </paraminfo>
@@ -6276,13 +6314,25 @@
 				<paraminfo> &amp; </paraminfo>
 			</param>
 		</member>
-		<member name="M:@yH_OnPlayerConnect@07" syntax="@yH_OnPlayerConnect@07(&amp;playerid)">
+		<member name="M:@yH_OnPlayerConnect@05" syntax="@yH_OnPlayerConnect@05(&amp;playerid)">
 			<attribute name="public"/>
 			<stacksize value="8"/>
 			<dependency name="O@A_"/>
 			<dependency name="O@V_"/>
 			<dependency name="_@Hy"/>
-			<dependency name="_@yHOnPlayerConnect@07"/>
+			<dependency name="_@yHOnPlayerConnect@05"/>
+			<dependency name="true"/>
+			<param name="playerid">
+				<paraminfo> &amp; </paraminfo>
+			</param>
+		</member>
+		<member name="M:@yH_OnPlayerConnect@06" syntax="@yH_OnPlayerConnect@06(&amp;playerid)">
+			<attribute name="public"/>
+			<stacksize value="8"/>
+			<dependency name="O@A_"/>
+			<dependency name="O@V_"/>
+			<dependency name="_@Hy"/>
+			<dependency name="_@yHOnPlayerConnect@06"/>
 			<dependency name="true"/>
 			<param name="playerid">
 				<paraminfo> &amp; </paraminfo>
@@ -6303,25 +6353,13 @@
 				<paraminfo> &amp; </paraminfo>
 			</param>
 		</member>
-		<member name="M:@yH_OnPlayerDisconnect@02" syntax="@yH_OnPlayerDisconnect@02(&amp;playerid)">
+		<member name="M:@yH_OnPlayerDisconnect@05" syntax="@yH_OnPlayerDisconnect@05(&amp;playerid)">
 			<attribute name="public"/>
 			<stacksize value="8"/>
 			<dependency name="O@A_"/>
 			<dependency name="O@V_"/>
 			<dependency name="_@Hy"/>
-			<dependency name="_@yHOnPlayerDisconnect@02"/>
-			<dependency name="true"/>
-			<param name="playerid">
-				<paraminfo> &amp; </paraminfo>
-			</param>
-		</member>
-		<member name="M:@yH_OnPlayerDisconnect@03" syntax="@yH_OnPlayerDisconnect@03(&amp;playerid)">
-			<attribute name="public"/>
-			<stacksize value="8"/>
-			<dependency name="O@A_"/>
-			<dependency name="O@V_"/>
-			<dependency name="_@Hy"/>
-			<dependency name="_@yHOnPlayerDisconnect@03"/>
+			<dependency name="_@yHOnPlayerDisconnect@05"/>
 			<dependency name="true"/>
 			<param name="playerid">
 				<paraminfo> &amp; </paraminfo>
@@ -6339,13 +6377,25 @@
 				<paraminfo> &amp; </paraminfo>
 			</param>
 		</member>
-		<member name="M:@yH_OnQueryError@01" syntax="@yH_OnQueryError@01(&amp;errorid, error[], callback[], query[], &amp;handle)">
+		<member name="M:@yH_OnPlayerDisconnect@09" syntax="@yH_OnPlayerDisconnect@09(&amp;playerid)">
 			<attribute name="public"/>
 			<stacksize value="8"/>
 			<dependency name="O@A_"/>
 			<dependency name="O@V_"/>
 			<dependency name="_@Hy"/>
-			<dependency name="_@yHOnQueryError@01"/>
+			<dependency name="_@yHOnPlayerDisconnect@09"/>
+			<dependency name="true"/>
+			<param name="playerid">
+				<paraminfo> &amp; </paraminfo>
+			</param>
+		</member>
+		<member name="M:@yH_OnQueryError@04" syntax="@yH_OnQueryError@04(&amp;errorid, error[], callback[], query[], &amp;handle)">
+			<attribute name="public"/>
+			<stacksize value="8"/>
+			<dependency name="O@A_"/>
+			<dependency name="O@V_"/>
+			<dependency name="_@Hy"/>
+			<dependency name="_@yHOnQueryError@04"/>
 			<dependency name="true"/>
 			<param name="errorid">
 				<paraminfo> &amp; </paraminfo>
@@ -6363,13 +6413,25 @@
 				<paraminfo>MySQL &amp; </paraminfo>
 			</param>
 		</member>
-		<member name="M:@yH_TID_OnUserLogin@06" syntax="@yH_TID_OnUserLogin@06(&amp;playerid)">
+		<member name="M:@yH_TID_OnUserLogin@02" syntax="@yH_TID_OnUserLogin@02(&amp;playerid)">
 			<attribute name="public"/>
 			<stacksize value="8"/>
 			<dependency name="O@A_"/>
 			<dependency name="O@V_"/>
 			<dependency name="_@Hy"/>
-			<dependency name="_@yHTID_OnUserLogin@06"/>
+			<dependency name="_@yHTID_OnUserLogin@02"/>
+			<dependency name="true"/>
+			<param name="playerid">
+				<paraminfo> &amp; </paraminfo>
+			</param>
+		</member>
+		<member name="M:@yH_TID_OnUserLogin@09" syntax="@yH_TID_OnUserLogin@09(&amp;playerid)">
+			<attribute name="public"/>
+			<stacksize value="8"/>
+			<dependency name="O@A_"/>
+			<dependency name="O@V_"/>
+			<dependency name="_@Hy"/>
+			<dependency name="_@yHTID_OnUserLogin@09"/>
 			<dependency name="true"/>
 			<param name="playerid">
 				<paraminfo> &amp; </paraminfo>
@@ -7942,7 +8004,7 @@
 		</member>
 		<member name="M:AddPlayerClass" syntax="AddPlayerClass(modelid, spawn_x, spawn_y, spawn_z, z_angle, weapon1, weapon1_ammo, weapon2, weapon2_ammo, weapon3, weapon3_ammo)">
 			<attribute name="native"/>
-			<referrer name="_@yHOnGameModeInit@09"/>
+			<referrer name="_@yHOnGameModeInit@0@"/>
 			<param name="modelid">
 				The <a href="http://wiki.sa-mp.com/wiki/Skins">skin</a> which the player will spawn with
 			</param>
@@ -12059,17 +12121,9 @@
 		<member name="M:ClearingChat" syntax="ClearingChat(playerid)">
 			<stacksize value="4"/>
 			<referrer name="@_yTClearingChat"/>
-			<referrer name="_@yHOnPlayerDisconnect@03"/>
+			<referrer name="_@yHOnPlayerDisconnect@06"/>
 			<dependency name="Utils_ClearPlayerChat"/>
 			<param name="playerid">
-			</param>
-		</member>
-		<member name="M:ClickDynamicPlayerTextdraw" syntax="ClickDynamicPlayerTextdraw(playerid, playertextid)">
-			<stacksize value="1"/>
-			<param name="playerid">
-			</param>
-			<param name="playertextid">
-				<paraminfo>PlayerText </paraminfo>
 			</param>
 		</member>
 		<member name="M:CodeScanAddJumpTarget" syntax="CodeScanAddJumpTarget(cip, target, stk, hea, jumpTargets[], num)">
@@ -13516,7 +13570,7 @@
 		</member>
 		<member name="M:Delete3DTextLabel" syntax="Delete3DTextLabel(id)">
 			<attribute name="native"/>
-			<referrer name="_@yHOnPlayerDisconnect@06"/>
+			<referrer name="_@yHOnPlayerDisconnect@09"/>
 			<param name="id">
 				<paraminfo>Text3D </paraminfo>
 				The ID of the 3D text label to delete
@@ -13666,9 +13720,9 @@
 		<member name="M:Dialog_ShowPlayerDialog" syntax="Dialog_ShowPlayerDialog(playerid, dialog, style, title[], caption[], button1[], button2[])">
 			<tagname value="bool"/>
 			<stacksize value="9"/>
+			<referrer name="_@yHOnPlayerClickTextDraw@02"/>
 			<referrer name="TID_DisplayRegisterPrompt"/>
 			<referrer name="TID_DisplayLoginPrompt"/>
-			<referrer name="_@yHOnPlayerClickTextDraw@08"/>
 			<dependency name="Debug_Print0"/>
 			<dependency name="Dialog_ShowPlayerNative"/>
 			<dependency name="I@"/>
@@ -15564,7 +15618,7 @@
 			<referrer name="GetPlayerRPName"/>
 			<referrer name="GetPlayerRPComponents"/>
 			<referrer name="HasRPName"/>
-			<referrer name="_@yHOnPlayerConnect@02"/>
+			<referrer name="_@yHOnPlayerConnect@05"/>
 			<referrer name="TID_CreateTempoID"/>
 			<param name="playerid">
 				The ID of the player to get the name of
@@ -16785,7 +16839,6 @@
 			<referrer name="TID_AutoLoginUser"/>
 			<referrer name="TID_DisplayLoginPrompt"/>
 			<referrer name="TID_LoadUserMembership"/>
-			<referrer name="_@yHOnPlayerConnect@07"/>
 		</member>
 		<member name="M:I@K" syntax="I@K(n)">
 			<stacksize value="1"/>
@@ -16796,7 +16849,6 @@
 			<referrer name="TID_AutoLoginUser"/>
 			<referrer name="TID_DisplayLoginPrompt"/>
 			<referrer name="TID_LoadUserMembership"/>
-			<referrer name="_@yHOnPlayerConnect@07"/>
 			<param name="n">
 			</param>
 		</member>
@@ -16809,7 +16861,6 @@
 			<referrer name="TID_AutoLoginUser"/>
 			<referrer name="TID_DisplayLoginPrompt"/>
 			<referrer name="TID_LoadUserMembership"/>
-			<referrer name="_@yHOnPlayerConnect@07"/>
 			<param name="...">
 			</param>
 		</member>
@@ -16823,7 +16874,6 @@
 			<referrer name="TID_AutoLoginUser"/>
 			<referrer name="TID_DisplayLoginPrompt"/>
 			<referrer name="TID_LoadUserMembership"/>
-			<referrer name="_@yHOnPlayerConnect@07"/>
 			<param name="str">
 				<paraminfo> [] </paraminfo>
 			</param>
@@ -17813,7 +17863,6 @@
 			<referrer name="TID_AutoLoginUser"/>
 			<referrer name="TID_DisplayLoginPrompt"/>
 			<referrer name="TID_LoadUserMembership"/>
-			<referrer name="_@yHOnPlayerConnect@07"/>
 			<dependency name="AMX_Read"/>
 			<dependency name="AMX_Write"/>
 			<dependency name="Callback_CallHandler_"/>
@@ -18241,6 +18290,7 @@
 			<referrer name="IsPCPlayer"/>
 			<referrer name="IsAndroidPlayer"/>
 			<referrer name="Android_OnYSIInit"/>
+			<referrer name="UI_SetPlayerTextDrawString"/>
 			<referrer name="Utils_ClearPlayerChat"/>
 			<param name="playerid">
 				The ID of the player to check
@@ -20337,7 +20387,11 @@
 		</member>
 		<member name="M:Logger_Dbg" syntax="Logger_Dbg(handler[], text[], ...)">
 			<stacksize value="283"/>
-			<referrer name="_@yHOnPlayerConnect@02"/>
+			<referrer name="_@yHOnGameModeInit@01"/>
+			<referrer name="_@yHOnPlayerConnect@01"/>
+			<referrer name="UI_SetPlayerBrightness"/>
+			<referrer name="_@yHOnGameModeInit@03"/>
+			<referrer name="_@yHOnPlayerConnect@05"/>
 			<referrer name="TID_DisplayRegisterPrompt"/>
 			<referrer name="TID_OnUserAutoLogin"/>
 			<dependency name="EOS"/>
@@ -20426,7 +20480,11 @@
 			<tagname value="LOGGER_FIELD"/>
 			<stacksize value="7"/>
 			<referrer name="_@yHOnGameModeInit@01"/>
-			<referrer name="_@yHOnQueryError@01"/>
+			<referrer name="_@yHOnPlayerConnect@01"/>
+			<referrer name="UI_SetPlayerBrightness"/>
+			<referrer name="_@yHOnGameModeInit@03"/>
+			<referrer name="_@yHOnGameModeInit@04"/>
+			<referrer name="_@yHOnQueryError@04"/>
 			<referrer name="TID_IsEmailUsed"/>
 			<dependency name="FieldBuffer"/>
 			<dependency name="Logger_I"/>
@@ -20439,10 +20497,10 @@
 		</member>
 		<member name="M:Logger_Log" syntax="Logger_Log(text[], ...)">
 			<stacksize value="283"/>
-			<referrer name="_@yHOnGameModeInit@01"/>
-			<referrer name="_@yHOnQueryError@01"/>
+			<referrer name="_@yHOnGameModeInit@04"/>
+			<referrer name="_@yHOnQueryError@04"/>
 			<referrer name="TID_CreateTempoID"/>
-			<referrer name="_@yHOnGameModeInit@09"/>
+			<referrer name="_@yHOnGameModeInit@0@"/>
 			<dependency name="EOS"/>
 			<dependency name="EventBuffer"/>
 			<dependency name="Logger_S"/>
@@ -20461,7 +20519,9 @@
 		<member name="M:Logger_P" syntax="Logger_P(playerid)">
 			<tagname value="LOGGER_FIELD"/>
 			<stacksize value="30"/>
-			<referrer name="_@yHOnPlayerConnect@02"/>
+			<referrer name="_@yHOnPlayerConnect@01"/>
+			<referrer name="UI_SetPlayerBrightness"/>
+			<referrer name="_@yHOnPlayerConnect@05"/>
 			<referrer name="TID_DisplayRegisterPrompt"/>
 			<referrer name="TID_CreateTempoID"/>
 			<referrer name="TID_OnUserAutoLogin"/>
@@ -20480,8 +20540,8 @@
 			<referrer name="Logger_Dbg"/>
 			<referrer name="Logger_Err"/>
 			<referrer name="Logger_Fatal"/>
-			<referrer name="_@yHOnQueryError@01"/>
-			<referrer name="_@yHOnPlayerConnect@02"/>
+			<referrer name="_@yHOnQueryError@04"/>
+			<referrer name="_@yHOnPlayerConnect@05"/>
 			<dependency name="FieldBuffer"/>
 			<dependency name="Logger_EscapeQuote"/>
 			<dependency name="Logger_S"/>
@@ -20495,6 +20555,8 @@
 		</member>
 		<member name="M:Logger_ToggleDebug" syntax="Logger_ToggleDebug(handler[], toggle)">
 			<stacksize value="4"/>
+			<referrer name="_@yHOnGameModeInit@01"/>
+			<referrer name="_@yHOnGameModeInit@03"/>
 			<dependency name="DeleteSVar"/>
 			<dependency name="SetSVarInt"/>
 			<param name="handler">
@@ -21160,20 +21222,23 @@
 			<referrer name="@yH_OnPlayerDisconnect@000"/>
 			<referrer name="@yH_OnDialogResponse@000"/>
 			<referrer name="@yH_OnGameModeInit@01"/>
-			<referrer name="@yH_OnGameModeExit@01"/>
-			<referrer name="@yH_OnQueryError@01"/>
-			<referrer name="@yH_OnPlayerConnect@02"/>
-			<referrer name="@yH_OnPlayerDisconnect@02"/>
+			<referrer name="@yH_OnPlayerConnect@01"/>
+			<referrer name="@yH_OnGameModeInit@02"/>
+			<referrer name="@yH_OnPlayerClickTextDraw@02"/>
+			<referrer name="@yH_TID_OnUserLogin@02"/>
+			<referrer name="@yH_OnGameModeInit@03"/>
 			<referrer name="@yH_OnPlayerConnect@03"/>
-			<referrer name="@yH_OnPlayerDisconnect@03"/>
-			<referrer name="@yH_TID_OnUserLogin@06"/>
+			<referrer name="@yH_OnGameModeInit@04"/>
+			<referrer name="@yH_OnGameModeExit@04"/>
+			<referrer name="@yH_OnQueryError@04"/>
+			<referrer name="@yH_OnPlayerConnect@05"/>
+			<referrer name="@yH_OnPlayerDisconnect@05"/>
+			<referrer name="@yH_OnPlayerConnect@06"/>
 			<referrer name="@yH_OnPlayerDisconnect@06"/>
-			<referrer name="@yH_OnGameModeInit@07"/>
-			<referrer name="@yH_OnPlayerConnect@07"/>
-			<referrer name="@yH_OnGameModeInit@08"/>
-			<referrer name="@yH_OnPlayerClickTextDraw@08"/>
-			<referrer name="@yH_OnGameModeInit@09"/>
-			<referrer name="@yH_OnIncomingConnection@09"/>
+			<referrer name="@yH_TID_OnUserLogin@09"/>
+			<referrer name="@yH_OnPlayerDisconnect@09"/>
+			<referrer name="@yH_OnGameModeInit@0@"/>
+			<referrer name="@yH_OnIncomingConnection@0@"/>
 			<dependency name="DisasmContext"/>
 			<dependency name="DisasmContext_opcode"/>
 			<dependency name="DisasmGetOperandReloc"/>
@@ -21380,14 +21445,6 @@
 			</param>
 			<summary>This callback is called when a player responds to a dialog shown using <a href="#ShowPlayerDialog">ShowPlayerDialog</a> by either clicking a button, pressing ENTER/ESC or double-clicking a list item (if using a list style dialog).</summary>      <seealso name="ShowPlayerDialog"/> <remarks>This callback was added in <b>SA-MP 0.3a</b> and will not work in earlier versions!</remarks> <remarks>A player's dialog doesn't hide when the gamemode restarts, causing the server to print <c>"Warning: PlayerDialogResponse PlayerId: 0 dialog ID doesn't match last sent dialog ID"</c> if a player responded to this dialog after restart.</remarks> <remarks>Parameters can contain different values, based on dialog's <a href="http://wiki.sa-mp.com/wiki/Dialog_Styles">style</a>.</remarks> <returns> Returning <b><c>0</c></b> in this callback will pass the dialog to another script in case no matching code were found in your gamemode's callback.<p/> It is always called first in filterscripts so returning <b><c>1</c></b> there blocks other filterscripts from seeing it. </returns>
 		</member>
-		<member name="M:OnDynamicPlayerTextdrawClicked" syntax="OnDynamicPlayerTextdrawClicked(playerid, playertextid)">
-			<stacksize value="1"/>
-			<param name="playerid">
-			</param>
-			<param name="playertextid">
-				<paraminfo>PlayerText </paraminfo>
-			</param>
-		</member>
 		<member name="M:OnEnterExitModShop" syntax="OnEnterExitModShop(playerid, enterexit, interiorid)">
 			<stacksize value="1"/>
 			<param name="playerid">
@@ -21508,14 +21565,6 @@
 				The ID of the object that was moved
 			</param>
 			<summary>This callback is called when an object is moved after <a href="#MoveObject">MoveObject</a> (when it stops moving).</summary>  <seealso name="MoveObject"/> <seealso name="IsObjectMoving"/> <seealso name="StopObject"/> <seealso name="OnPlayerObjectMoved"/> <remarks><a href="#SetObjectPos">SetObjectPos</a> does not work when used in this callback. To fix it, recreate the object.</remarks> <returns> This callback does not handle returns.<p/> It is always called first in filterscripts. </returns>
-		</member>
-		<member name="M:OnPlayerClickDynamicTextdraw" syntax="OnPlayerClickDynamicTextdraw(playerid, playertextid)">
-			<stacksize value="1"/>
-			<param name="playerid">
-			</param>
-			<param name="playertextid">
-				<paraminfo>PlayerText </paraminfo>
-			</param>
 		</member>
 		<member name="M:OnPlayerClickMap" syntax="OnPlayerClickMap(playerid, fX, fY, fZ)">
 			<stacksize value="1"/>
@@ -22557,6 +22606,162 @@
 				<paraminfo>Float </paraminfo>
 			</param>
 		</member>
+		<member name="M:PlayerTextDrawAlignment" syntax="PlayerTextDrawAlignment(playerid, text, alignment)">
+			<attribute name="native"/>
+			<referrer name="_@yHOnPlayerConnect@01"/>
+			<param name="playerid">
+				The ID of the player whose player-textdraw to set the alignment of
+			</param>
+			<param name="text">
+				<paraminfo>PlayerText </paraminfo>
+				The ID of the player-textdraw to set the alignment of
+			</param>
+			<param name="alignment">
+				<b><c>1</c></b>-left <b><c>2</c></b>-centered <b><c>3</c></b>-right
+			</param>
+			<summary>Set the text alignment of a player-textdraw.</summary>    <seealso name="CreatePlayerTextDraw"/> <seealso name="PlayerTextDrawDestroy"/> <seealso name="PlayerTextDrawColor"/> <seealso name="PlayerTextDrawBoxColor"/> <seealso name="PlayerTextDrawBackgroundColor"/> <seealso name="PlayerTextDrawFont"/> <seealso name="PlayerTextDrawLetterSize"/> <seealso name="PlayerTextDrawTextSize"/> <seealso name="PlayerTextDrawSetOutline"/> <seealso name="PlayerTextDrawSetShadow"/> <seealso name="PlayerTextDrawSetProportional"/> <seealso name="PlayerTextDrawUseBox"/> <seealso name="PlayerTextDrawSetString"/> <seealso name="PlayerTextDrawShow"/> <seealso name="PlayerTextDrawHide"/> <remarks>This feature (player-textdraws) was added in <b>SA-MP 0.3e</b> and will not work in earlier versions!</remarks> <remarks>For alignment <b><c>2</c></b> (center) the x and y values of TextSize need to be swapped, see notes at <a href="#PlayerTextDrawTextSize">PlayerTextDrawTextSize</a>. </remarks>
+		</member>
+		<member name="M:PlayerTextDrawBackgroundColor" syntax="PlayerTextDrawBackgroundColor(playerid, text, color)">
+			<attribute name="native"/>
+			<referrer name="_@yHOnPlayerConnect@01"/>
+			<param name="playerid">
+				The ID of the player whose player-textdraw to set the background color of
+			</param>
+			<param name="text">
+				<paraminfo>PlayerText </paraminfo>
+				The ID of the player-textdraw to set the background color of
+			</param>
+			<param name="color">
+				The color that the textdraw should be set to
+			</param>
+			<summary>Adjust the background color of a player-textdraw.</summary>    <seealso name="CreatePlayerTextDraw"/> <seealso name="PlayerTextDrawDestroy"/> <seealso name="PlayerTextDrawColor"/> <seealso name="PlayerTextDrawBoxColor"/> <seealso name="PlayerTextDrawAlignment"/> <seealso name="PlayerTextDrawFont"/> <seealso name="PlayerTextDrawLetterSize"/> <seealso name="PlayerTextDrawTextSize"/> <seealso name="PlayerTextDrawSetOutline"/> <seealso name="PlayerTextDrawSetShadow"/> <seealso name="PlayerTextDrawSetProportional"/> <seealso name="PlayerTextDrawUseBox"/> <seealso name="PlayerTextDrawSetString"/> <seealso name="PlayerTextDrawShow"/> <seealso name="PlayerTextDrawHide"/> <remarks>This feature (player-textdraws) was added in <b>SA-MP 0.3e</b> and will not work in earlier versions!</remarks> <remarks>If <a href="#PlayerTextDrawSetOutline">PlayerTextDrawSetOutline</a> is used with size &gt; 0, the outline color will match the color used in <a href="#PlayerTextDrawBackgroundColor">PlayerTextDrawBackgroundColor</a>. Changing the value of color seems to alter the color used in <a href="#PlayerTextDrawColor">PlayerTextDrawColor</a></remarks>
+		</member>
+		<member name="M:PlayerTextDrawBoxColor" syntax="PlayerTextDrawBoxColor(playerid, text, color)">
+			<attribute name="native"/>
+			<referrer name="_@yHOnPlayerConnect@01"/>
+			<referrer name="UI_SetPlayerBrightness"/>
+			<param name="playerid">
+				The ID of the player whose textdraw to set the box color of
+			</param>
+			<param name="text">
+				<paraminfo>PlayerText </paraminfo>
+				The ID of the player textdraw to set the box color of
+			</param>
+			<param name="color">
+				The color to set. Alpha (transparency) is supported
+			</param>
+			<summary>Sets the color of a textdraw's box (<a href="#PlayerTextDrawUseBox">PlayerTextDrawUseBox</a>).</summary>    <seealso name="CreatePlayerTextDraw"/> <seealso name="PlayerTextDrawDestroy"/> <seealso name="PlayerTextDrawColor"/> <seealso name="PlayerTextDrawBackgroundColor"/> <seealso name="PlayerTextDrawAlignment"/> <seealso name="PlayerTextDrawFont"/> <seealso name="PlayerTextDrawLetterSize"/> <seealso name="PlayerTextDrawTextSize"/> <seealso name="PlayerTextDrawSetOutline"/> <seealso name="PlayerTextDrawSetShadow"/> <seealso name="PlayerTextDrawSetProportional"/> <seealso name="PlayerTextDrawUseBox"/> <seealso name="PlayerTextDrawSetString"/> <seealso name="PlayerTextDrawShow"/> <seealso name="PlayerTextDrawHide"/> <remarks>This feature (player-textdraws) was added in <b>SA-MP 0.3e</b> and will not work in earlier versions!</remarks>
+		</member>
+		<member name="M:PlayerTextDrawColor" syntax="PlayerTextDrawColor(playerid, text, color)">
+			<attribute name="native"/>
+			<referrer name="_@yHOnPlayerConnect@01"/>
+			<param name="playerid">
+				The ID of the player who's textdraw to set the color of
+			</param>
+			<param name="text">
+				<paraminfo>PlayerText </paraminfo>
+				The TextDraw to change
+			</param>
+			<param name="color">
+				The color in hexadecimal format
+			</param>
+			<summary>Sets the text color of a player-textdraw.</summary>    <seealso name="CreatePlayerTextDraw"/> <seealso name="PlayerTextDrawDestroy"/> <seealso name="PlayerTextDrawBoxColor"/> <seealso name="PlayerTextDrawBackgroundColor"/> <seealso name="PlayerTextDrawAlignment"/> <seealso name="PlayerTextDrawFont"/> <seealso name="PlayerTextDrawLetterSize"/> <seealso name="PlayerTextDrawTextSize"/> <seealso name="PlayerTextDrawSetOutline"/> <seealso name="PlayerTextDrawSetShadow"/> <seealso name="PlayerTextDrawSetProportional"/> <seealso name="PlayerTextDrawUseBox"/> <seealso name="PlayerTextDrawSetString"/> <seealso name="PlayerTextDrawShow"/> <seealso name="PlayerTextDrawHide"/> <remarks>This feature (player-textdraws) was added in <b>SA-MP 0.3e</b> and will not work in earlier versions!</remarks> <remarks>You can also use Gametext colors in textdraws.</remarks> <remarks>The textdraw must be re-shown to the player in order to update the color.</remarks>
+		</member>
+		<member name="M:PlayerTextDrawFont" syntax="PlayerTextDrawFont(playerid, text, font)">
+			<attribute name="native"/>
+			<referrer name="_@yHOnPlayerConnect@01"/>
+			<param name="playerid">
+				The ID of the player whose player-textdraw to change the font of
+			</param>
+			<param name="text">
+				<paraminfo>PlayerText </paraminfo>
+				The ID of the player-textdraw to change the font of
+			</param>
+			<param name="font">
+				There are four font styles. A font value greater than <b><c>3</c></b> does not display, and anything greater than <b><c>16</c></b> crashes the client. See <a href="http://wiki.sa-mp.com/wiki/PlayerTextDrawFont">http://wiki.sa-mp.com/wiki/PlayerTextDrawFont</a>
+			</param>
+			<summary>Change the font of a player-textdraw.</summary>    <seealso name="CreatePlayerTextDraw"/> <seealso name="PlayerTextDrawDestroy"/> <seealso name="PlayerTextDrawColor"/> <seealso name="PlayerTextDrawBoxColor"/> <seealso name="PlayerTextDrawBackgroundColor"/> <seealso name="PlayerTextDrawAlignment"/> <seealso name="PlayerTextDrawLetterSize"/> <seealso name="PlayerTextDrawTextSize"/> <seealso name="PlayerTextDrawSetOutline"/> <seealso name="PlayerTextDrawSetShadow"/> <seealso name="PlayerTextDrawSetProportional"/> <seealso name="PlayerTextDrawUseBox"/> <seealso name="PlayerTextDrawSetString"/> <seealso name="PlayerTextDrawShow"/> <seealso name="PlayerTextDrawHide"/> <remarks>This feature (player-textdraws) was added in <b>SA-MP 0.3e</b> and will not work in earlier versions!</remarks>
+		</member>
+		<member name="M:PlayerTextDrawLetterSize" syntax="PlayerTextDrawLetterSize(playerid, text, x, y)">
+			<attribute name="native"/>
+			<referrer name="_@yHOnPlayerConnect@01"/>
+			<param name="playerid">
+				The ID of the player whose player-textdraw to set the letter size of
+			</param>
+			<param name="text">
+				<paraminfo>PlayerText </paraminfo>
+				The ID of the player-textdraw to change the letter size of
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+				Width of a char
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+				Height of a char
+			</param>
+			<summary>Sets the width and height of the letters in a player-textdraw.</summary>     <seealso name="CreatePlayerTextDraw"/> <seealso name="PlayerTextDrawDestroy"/> <seealso name="PlayerTextDrawColor"/> <seealso name="PlayerTextDrawBoxColor"/> <seealso name="PlayerTextDrawBackgroundColor"/> <seealso name="PlayerTextDrawAlignment"/> <seealso name="PlayerTextDrawFont"/> <seealso name="PlayerTextDrawTextSize"/> <seealso name="PlayerTextDrawSetOutline"/> <seealso name="PlayerTextDrawSetShadow"/> <seealso name="PlayerTextDrawSetProportional"/> <seealso name="PlayerTextDrawUseBox"/> <seealso name="PlayerTextDrawSetString"/> <seealso name="PlayerTextDrawShow"/> <seealso name="PlayerTextDrawHide"/> <remarks>This feature (player-textdraws) was added in <b>SA-MP 0.3e</b> and will not work in earlier versions!</remarks> <remarks>When using this function purely for the benefit of affecting the textdraw box, multiply 'Y' by <b><c>0.135</c></b> to convert to <a href="#TextDrawTextSize">TextDrawTextSize</a>-like measurements</remarks> <remarks>Fonts appear to look the best with an X to Y ratio of <b><c>1</c></b> to <b><c>4</c></b> (e.g. if x is <b><c>0.5</c></b> then y should be <b><c>2</c></b>).</remarks>
+		</member>
+		<member name="M:PlayerTextDrawSetOutline" syntax="PlayerTextDrawSetOutline(playerid, text, size)">
+			<attribute name="native"/>
+			<referrer name="_@yHOnPlayerConnect@01"/>
+			<param name="playerid">
+				The ID of the player whose player-textdraw to set the outline of
+			</param>
+			<param name="text">
+				<paraminfo>PlayerText </paraminfo>
+				The ID of the player-textdraw to set the outline of
+			</param>
+			<param name="size">
+				The thickness of the outline
+			</param>
+			<summary>Set the outline of a player-textdraw. The outline colour cannot be changed unless <a href="#PlayerTextDrawBackgroundColor">PlayerTextDrawBackgroundColor</a> is used.</summary>    <seealso name="CreatePlayerTextDraw"/> <seealso name="PlayerTextDrawDestroy"/> <seealso name="PlayerTextDrawColor"/> <seealso name="PlayerTextDrawBoxColor"/> <seealso name="PlayerTextDrawBackgroundColor"/> <seealso name="PlayerTextDrawAlignment"/> <seealso name="PlayerTextDrawFont"/> <seealso name="PlayerTextDrawLetterSize"/> <seealso name="PlayerTextDrawTextSize"/> <seealso name="PlayerTextDrawSetShadow"/> <seealso name="PlayerTextDrawSetProportional"/> <seealso name="PlayerTextDrawUseBox"/> <seealso name="PlayerTextDrawSetString"/> <seealso name="PlayerTextDrawShow"/> <seealso name="PlayerTextDrawHide"/> <remarks>This feature (player-textdraws) was added in <b>SA-MP 0.3e</b> and will not work in earlier versions!</remarks>
+		</member>
+		<member name="M:PlayerTextDrawSetProportional" syntax="PlayerTextDrawSetProportional(playerid, text, set)">
+			<attribute name="native"/>
+			<referrer name="_@yHOnPlayerConnect@01"/>
+			<param name="playerid">
+				The ID of the player whose player-textdraw to set the proportionality of
+			</param>
+			<param name="text">
+				<paraminfo>PlayerText </paraminfo>
+				The ID of the player-textdraw to set the proportionality of
+			</param>
+			<param name="set">
+				<b><c>1</c></b> to enable proportionality, <b><c>0</c></b> to disable
+			</param>
+			<summary>Appears to scale text spacing to a proportional ratio. Useful when using <a href="#PlayerTextDrawLetterSize">PlayerTextDrawLetterSize</a> to ensure the text has even character spacing.</summary>    <seealso name="CreatePlayerTextDraw"/> <seealso name="PlayerTextDrawDestroy"/> <seealso name="PlayerTextDrawColor"/> <seealso name="PlayerTextDrawBoxColor"/> <seealso name="PlayerTextDrawBackgroundColor"/> <seealso name="PlayerTextDrawAlignment"/> <seealso name="PlayerTextDrawFont"/> <seealso name="PlayerTextDrawLetterSize"/> <seealso name="PlayerTextDrawTextSize"/> <seealso name="PlayerTextDrawSetOutline"/> <seealso name="PlayerTextDrawSetShadow"/> <seealso name="PlayerTextDrawUseBox"/> <seealso name="PlayerTextDrawSetString"/> <seealso name="PlayerTextDrawShow"/> <seealso name="PlayerTextDrawHide"/> <remarks>This feature (player-textdraws) was added in <b>SA-MP 0.3e</b> and will not work in earlier versions!</remarks>
+		</member>
+		<member name="M:PlayerTextDrawSetSelectable" syntax="PlayerTextDrawSetSelectable(playerid, text, set)">
+			<attribute name="native"/>
+			<referrer name="_@yHOnPlayerConnect@01"/>
+			<param name="playerid">
+				The ID of the player whose player-textdraw to set the selectability of
+			</param>
+			<param name="text">
+				<paraminfo>PlayerText </paraminfo>
+				The ID of the player-textdraw to set the selectability of
+			</param>
+			<param name="set">
+				Set the player-textdraw selectable (<b><c>1</c></b>) or non-selectable (<b><c>0</c></b>). By default this is <b><c>0</c></b>
+			</param>
+			<summary>Toggles whether a player-textdraw can be selected or not.</summary>    <seealso name="SelectTextDraw"/> <seealso name="CancelSelectTextDraw"/> <seealso name="OnPlayerClickPlayerTextDraw"/> <remarks>This feature (player-textdraws) was added in <b>SA-MP 0.3e</b> and will not work in earlier versions!</remarks> <remarks><a href="#PlayerTextDrawSetSelectable">PlayerTextDrawSetSelectable</a> MUST be used BEFORE the textdraw is shown to the player.</remarks> <remarks>Use <a href="#PlayerTextDrawTextSize">PlayerTextDrawTextSize</a> to define the clickable area.</remarks>
+		</member>
+		<member name="M:PlayerTextDrawSetShadow" syntax="PlayerTextDrawSetShadow(playerid, text, size)">
+			<attribute name="native"/>
+			<referrer name="_@yHOnPlayerConnect@01"/>
+			<param name="playerid">
+				The ID of the player to show the textdraw for
+			</param>
+			<param name="text">
+				<paraminfo>PlayerText </paraminfo>
+				The ID of the textdraw to show
+			</param>
+			<param name="size">
+				The size of the shadow. <b><c>0</c></b> will hide the shadow
+			</param>
+			<summary>Show a player-textdraw to the player it was created for.</summary>    <seealso name="PlayerTextDrawHide"/> <seealso name="CreatePlayerTextDraw"/> <seealso name="PlayerTextDrawDestroy"/> <seealso name="PlayerTextDrawColor"/> <seealso name="PlayerTextDrawBoxColor"/> <seealso name="PlayerTextDrawBackgroundColor"/> <seealso name="PlayerTextDrawAlignment"/> <seealso name="PlayerTextDrawFont"/> <seealso name="PlayerTextDrawLetterSize"/> <seealso name="PlayerTextDrawTextSize"/> <seealso name="PlayerTextDrawSetOutline"/> <seealso name="PlayerTextDrawSetShadow"/> <seealso name="PlayerTextDrawSetProportional"/> <seealso name="PlayerTextDrawUseBox"/> <seealso name="PlayerTextDrawSetString"/> <remarks>This feature (player-textdraws) was added in <b>SA-MP 0.3e</b> and will not work in earlier versions!</remarks>
+		</member>
 		<member name="M:PlayerTextDrawSetString" syntax="PlayerTextDrawSetString(playerid, text, string[])">
 			<attribute name="native"/>
 			<referrer name="va_PlayerTextDrawSetString"/>
@@ -22572,6 +22777,53 @@
 				The new string for the TextDraw
 			</param>
 			<summary>Change the text of a player-textdraw.</summary>    <seealso name="CreatePlayerTextDraw"/> <seealso name="PlayerTextDrawDestroy"/> <seealso name="PlayerTextDrawColor"/> <seealso name="PlayerTextDrawBoxColor"/> <seealso name="PlayerTextDrawBackgroundColor"/> <seealso name="PlayerTextDrawAlignment"/> <seealso name="PlayerTextDrawFont"/> <seealso name="PlayerTextDrawLetterSize"/> <seealso name="PlayerTextDrawTextSize"/> <seealso name="PlayerTextDrawSetOutline"/> <seealso name="PlayerTextDrawSetShadow"/> <seealso name="PlayerTextDrawSetProportional"/> <seealso name="PlayerTextDrawUseBox"/> <seealso name="PlayerTextDrawShow"/> <seealso name="PlayerTextDrawHide"/> <remarks>This feature (player-textdraws) was added in <b>SA-MP 0.3e</b> and will not work in earlier versions!</remarks> <remarks>There are limits to the length of textdraw strings! See <a href="http://wiki.sa-mp.com/wiki/Limits">Limits</a> for more info.</remarks> <remarks>You don't have to show the TextDraw again in order to apply the changes.</remarks>
+		</member>
+		<member name="M:PlayerTextDrawShow" syntax="PlayerTextDrawShow(playerid, text)">
+			<attribute name="native"/>
+			<referrer name="UI_SetPlayerBrightness"/>
+			<param name="playerid">
+				The ID of the player to show the textdraw for
+			</param>
+			<param name="text">
+				<paraminfo>PlayerText </paraminfo>
+				The ID of the textdraw to show
+			</param>
+			<summary>Show a player-textdraw to the player it was created for.</summary>   <seealso name="PlayerTextDrawHide"/> <seealso name="CreatePlayerTextDraw"/> <seealso name="PlayerTextDrawDestroy"/> <seealso name="PlayerTextDrawColor"/> <seealso name="PlayerTextDrawBoxColor"/> <seealso name="PlayerTextDrawBackgroundColor"/> <seealso name="PlayerTextDrawAlignment"/> <seealso name="PlayerTextDrawFont"/> <seealso name="PlayerTextDrawLetterSize"/> <seealso name="PlayerTextDrawTextSize"/> <seealso name="PlayerTextDrawSetOutline"/> <seealso name="PlayerTextDrawSetShadow"/> <seealso name="PlayerTextDrawSetProportional"/> <seealso name="PlayerTextDrawUseBox"/> <seealso name="PlayerTextDrawSetString"/> <remarks>This feature (player-textdraws) was added in <b>SA-MP 0.3e</b> and will not work in earlier versions!</remarks>
+		</member>
+		<member name="M:PlayerTextDrawTextSize" syntax="PlayerTextDrawTextSize(playerid, text, x, y)">
+			<attribute name="native"/>
+			<referrer name="_@yHOnPlayerConnect@01"/>
+			<param name="playerid">
+				The ID of the player whose player-textdraw to set the size of
+			</param>
+			<param name="text">
+				<paraminfo>PlayerText </paraminfo>
+				The ID of the player-textdraw to set the size of
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+				The size on the X axis (left/right) following the same 640x480 grid as <a href="#TextDrawCreate">TextDrawCreate</a>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+				The size on the Y axis (up/down) following the same 640x480 grid as <a href="#TextDrawCreate">TextDrawCreate</a>
+			</param>
+			<summary>Change the size of a player-textdraw (box if <a href="#PlayerTextDrawUseBox">PlayerTextDrawUseBox</a> is enabled and/or clickable area for use with <a href="#PlayerTextDrawSetSelectable">PlayerTextDrawSetSelectable</a>).</summary>     <seealso name="CreatePlayerTextDraw"/> <seealso name="PlayerTextDrawDestroy"/> <seealso name="PlayerTextDrawColor"/> <seealso name="PlayerTextDrawBoxColor"/> <seealso name="PlayerTextDrawBackgroundColor"/> <seealso name="PlayerTextDrawAlignment"/> <seealso name="PlayerTextDrawFont"/> <seealso name="PlayerTextDrawLetterSize"/> <seealso name="PlayerTextDrawSetOutline"/> <seealso name="PlayerTextDrawSetShadow"/> <seealso name="PlayerTextDrawSetProportional"/> <seealso name="PlayerTextDrawUseBox"/> <seealso name="PlayerTextDrawSetString"/> <seealso name="PlayerTextDrawShow"/> <seealso name="PlayerTextDrawHide"/> <remarks>This feature (player-textdraws) was added in <b>SA-MP 0.3e</b> and will not work in earlier versions!</remarks> <remarks> The x and y have different meanings with different PlayerTextDrawAlignment values:<p/> <ul> <li><b><c>1</c></b> (left): they are the right-most corner of the box, absolute coordinates.</li> <li><b><c>2</c></b> (center): they need to inverted (switch the two) and the x value is the overall width of the box.</li> <li><b><c>3</c></b> (right): the x and y are the coordinates of the left-most corner of the box </li> </ul> </remarks> <remarks> Using font type <b><c>4</c></b> (sprite) and <b><c>5</c></b> (model preview) converts X and Y of this function from corner coordinates to WIDTH and HEIGHT (offsets).<p/> The TextDraw box starts <b><c>10.0</c></b> units up and <b><c>5.0</c></b> to the left as the origin (<a href="#TextDrawCreate">TextDrawCreate</a> coordinate).<p/> This function defines the clickable area for use with <a href="#PlayerTextDrawSetSelectable">PlayerTextDrawSetSelectable</a>, whether a box is shown or not. </remarks>
+		</member>
+		<member name="M:PlayerTextDrawUseBox" syntax="PlayerTextDrawUseBox(playerid, text, use)">
+			<attribute name="native"/>
+			<referrer name="_@yHOnPlayerConnect@01"/>
+			<param name="playerid">
+				The ID of the player whose textdraw to toggle the box of
+			</param>
+			<param name="text">
+				<paraminfo>PlayerText </paraminfo>
+				The ID of the player-textdraw to toggle the box of
+			</param>
+			<param name="use">
+				<b><c>1</c></b> to use a box or <b><c>0</c></b> to not use a box
+			</param>
+			<summary>Toggle the box on a player-textdraw.</summary>    <seealso name="CreatePlayerTextDraw"/> <seealso name="PlayerTextDrawDestroy"/> <seealso name="PlayerTextDrawColor"/> <seealso name="PlayerTextDrawBoxColor"/> <seealso name="PlayerTextDrawBackgroundColor"/> <seealso name="PlayerTextDrawAlignment"/> <seealso name="PlayerTextDrawFont"/> <seealso name="PlayerTextDrawLetterSize"/> <seealso name="PlayerTextDrawTextSize"/> <seealso name="PlayerTextDrawSetOutline"/> <seealso name="PlayerTextDrawSetShadow"/> <seealso name="PlayerTextDrawSetProportional"/> <seealso name="PlayerTextDrawSetString"/> <seealso name="PlayerTextDrawShow"/> <seealso name="PlayerTextDrawHide"/> <remarks>This feature (player-textdraws) was added in <b>SA-MP 0.3e</b> and will not work in earlier versions!</remarks>
 		</member>
 		<member name="M:Pop" syntax="Pop(&amp;arg)">
 			<tagname value="bool"/>
@@ -24653,7 +24905,7 @@
 		</member>
 		<member name="M:SetPlayerName" syntax="SetPlayerName(playerid, name[])">
 			<attribute name="native"/>
-			<referrer name="_@yHOnPlayerConnect@02"/>
+			<referrer name="_@yHOnPlayerConnect@05"/>
 			<param name="playerid">
 				The ID of the player to set the name of
 			</param>
@@ -25173,7 +25425,7 @@
 		</member>
 		<member name="M:TID_DisplayLoginPrompt" syntax="TID_DisplayLoginPrompt(playerid)">
 			<stacksize value="227"/>
-			<referrer name="_@yHOnPlayerClickTextDraw@08"/>
+			<referrer name="_@yHOnPlayerClickTextDraw@02"/>
 			<dependency name="BCrypt_CheckInline"/>
 			<dependency name="Dialog_ShowCallback"/>
 			<dependency name="Dialog_ShowPlayerDialog"/>
@@ -25201,8 +25453,8 @@
 		</member>
 		<member name="M:TID_DisplayRegisterPrompt" syntax="TID_DisplayRegisterPrompt(playerid)">
 			<stacksize value="282"/>
+			<referrer name="_@yHOnPlayerClickTextDraw@02"/>
 			<referrer name="TID_DisplayRegisterPrompt"/>
-			<referrer name="_@yHOnPlayerClickTextDraw@08"/>
 			<dependency name="Dialog_ShowCallback"/>
 			<dependency name="Dialog_ShowPlayerDialog"/>
 			<dependency name="I@F"/>
@@ -25229,10 +25481,10 @@
 			<tagname value="MySQL"/>
 			<attribute name="public"/>
 			<stacksize value="1"/>
-			<referrer name="_@yHOnGameModeInit@01"/>
-			<referrer name="_@yHOnGameModeExit@01"/>
-			<referrer name="_@yHOnQueryError@01"/>
-			<referrer name="_@yHOnPlayerConnect@02"/>
+			<referrer name="_@yHOnGameModeInit@04"/>
+			<referrer name="_@yHOnGameModeExit@04"/>
+			<referrer name="_@yHOnQueryError@04"/>
+			<referrer name="_@yHOnPlayerConnect@05"/>
 			<referrer name="TID_CreateTempoID"/>
 			<referrer name="TID_IsEmailUsed"/>
 			<referrer name="TID_AutoLoginUser"/>
@@ -25273,7 +25525,7 @@
 			<tagname value="E_USER_STATE"/>
 			<stacksize value="1"/>
 			<referrer name="TID_tFinishIntro"/>
-			<referrer name="_@yHOnPlayerDisconnect@03"/>
+			<referrer name="_@yHOnPlayerDisconnect@06"/>
 			<dependency name="TID_g_sUserStatus"/>
 			<param name="playerid">
 				The ID of the player to get the status from
@@ -25335,7 +25587,7 @@
 		</member>
 		<member name="M:TID_LoadUserMembership" syntax="TID_LoadUserMembership(playerid)">
 			<stacksize value="268"/>
-			<referrer name="_@yHTID_OnUserLogin@06"/>
+			<referrer name="_@yHTID_OnUserLogin@09"/>
 			<dependency name="Attach3DTextLabelToPlayer"/>
 			<dependency name="I@F"/>
 			<dependency name="I@K"/>
@@ -25375,7 +25627,6 @@
 			<dependency name="Logger_P"/>
 			<dependency name="SetTimerEx"/>
 			<dependency name="TID_tFinishIntro"/>
-			<dependency name="UI_ShowPlayerLoadingScreen"/>
 			<dependency name="false"/>
 			<dependency name="true"/>
 			<param name="playerid">
@@ -25401,9 +25652,8 @@
 		</member>
 		<member name="M:TID_OnUserLogin" syntax="TID_OnUserLogin(playerid, autolog)">
 			<attribute name="public"/>
-			<stacksize value="5"/>
+			<stacksize value="4"/>
 			<dependency name="TID_AddUserAccess"/>
-			<dependency name="UI_ShowPlayerLoadingScreen"/>
 			<param name="playerid">
 			</param>
 			<param name="autolog">
@@ -25415,7 +25665,6 @@
 			<dependency name="E_USER_STATE_LOGGED_IN"/>
 			<dependency name="SetTimerEx"/>
 			<dependency name="TID_SetUserStatus"/>
-			<dependency name="UI_HidePlayerLoadingScreen"/>
 			<dependency name="false"/>
 			<param name="playerid">
 			</param>
@@ -25434,7 +25683,6 @@
 			<dependency name="TID_g_UserPassword"/>
 			<dependency name="TID_g_UserPassword"/>
 			<dependency name="UI_HidePlayerTempoID"/>
-			<dependency name="UI_ShowPlayerLoadingScreen"/>
 			<dependency name="cellmax"/>
 			<dependency name="contentDialog"/>
 			<dependency name="format"/>
@@ -25450,7 +25698,7 @@
 			<referrer name="TID_OnUserRegistered"/>
 			<referrer name="TID_AutoLoginUser"/>
 			<referrer name="TID_DisplayLoginPrompt"/>
-			<referrer name="_@yHOnIncomingConnection@09"/>
+			<referrer name="_@yHOnIncomingConnection@0@"/>
 			<dependency name="TID_g_sUserStatus"/>
 			<param name="playerid">
 				The ID of the player to set the status to
@@ -25511,8 +25759,9 @@
 		</member>
 		<member name="M:TextDrawAlignment" syntax="TextDrawAlignment(text, alignment)">
 			<attribute name="native"/>
-			<referrer name="_@yHOnGameModeInit@07"/>
-			<referrer name="_@yHOnGameModeInit@08"/>
+			<referrer name="_@yHOnGameModeInit@01"/>
+			<referrer name="_@yHOnGameModeInit@02"/>
+			<referrer name="_@yHOnGameModeInit@03"/>
 			<param name="text">
 				<paraminfo>Text </paraminfo>
 				The ID of the textdraw to set the alignment of
@@ -25524,8 +25773,9 @@
 		</member>
 		<member name="M:TextDrawBackgroundColor" syntax="TextDrawBackgroundColor(text, color)">
 			<attribute name="native"/>
-			<referrer name="_@yHOnGameModeInit@07"/>
-			<referrer name="_@yHOnGameModeInit@08"/>
+			<referrer name="_@yHOnGameModeInit@01"/>
+			<referrer name="_@yHOnGameModeInit@02"/>
+			<referrer name="_@yHOnGameModeInit@03"/>
 			<param name="text">
 				<paraminfo>Text </paraminfo>
 				The ID of the textdraw to set the background color of
@@ -25537,8 +25787,9 @@
 		</member>
 		<member name="M:TextDrawBoxColor" syntax="TextDrawBoxColor(text, color)">
 			<attribute name="native"/>
-			<referrer name="_@yHOnGameModeInit@07"/>
-			<referrer name="_@yHOnGameModeInit@08"/>
+			<referrer name="_@yHOnGameModeInit@01"/>
+			<referrer name="_@yHOnGameModeInit@02"/>
+			<referrer name="_@yHOnGameModeInit@03"/>
 			<param name="text">
 				<paraminfo>Text </paraminfo>
 				The TextDraw to change
@@ -25550,8 +25801,9 @@
 		</member>
 		<member name="M:TextDrawColor" syntax="TextDrawColor(text, color)">
 			<attribute name="native"/>
-			<referrer name="_@yHOnGameModeInit@07"/>
-			<referrer name="_@yHOnGameModeInit@08"/>
+			<referrer name="_@yHOnGameModeInit@01"/>
+			<referrer name="_@yHOnGameModeInit@02"/>
+			<referrer name="_@yHOnGameModeInit@03"/>
 			<param name="text">
 				<paraminfo>Text </paraminfo>
 				The ID of the textdraw to change the color of.
@@ -25581,8 +25833,9 @@
 		</member>
 		<member name="M:TextDrawFont" syntax="TextDrawFont(text, font)">
 			<attribute name="native"/>
-			<referrer name="_@yHOnGameModeInit@07"/>
-			<referrer name="_@yHOnGameModeInit@08"/>
+			<referrer name="_@yHOnGameModeInit@01"/>
+			<referrer name="_@yHOnGameModeInit@02"/>
+			<referrer name="_@yHOnGameModeInit@03"/>
 			<param name="text">
 				<paraminfo>Text </paraminfo>
 				The TextDraw to change
@@ -25594,8 +25847,9 @@
 		</member>
 		<member name="M:TextDrawHideForPlayer" syntax="TextDrawHideForPlayer(playerid, text)">
 			<attribute name="native"/>
-			<referrer name="UI_HidePlayerIntroScreen"/>
+			<referrer name="UI_HidePlayerBlackScreen"/>
 			<referrer name="UI_HidePlayerTempoID"/>
+			<referrer name="UI_HidePlayerIntro"/>
 			<param name="playerid">
 				The ID of the player that the textdraw should be hidden for
 			</param>
@@ -25607,8 +25861,9 @@
 		</member>
 		<member name="M:TextDrawLetterSize" syntax="TextDrawLetterSize(text, x, y)">
 			<attribute name="native"/>
-			<referrer name="_@yHOnGameModeInit@07"/>
-			<referrer name="_@yHOnGameModeInit@08"/>
+			<referrer name="_@yHOnGameModeInit@01"/>
+			<referrer name="_@yHOnGameModeInit@02"/>
+			<referrer name="_@yHOnGameModeInit@03"/>
 			<param name="text">
 				<paraminfo>Text </paraminfo>
 				The TextDraw to change
@@ -25625,8 +25880,9 @@
 		</member>
 		<member name="M:TextDrawSetOutline" syntax="TextDrawSetOutline(text, size)">
 			<attribute name="native"/>
-			<referrer name="_@yHOnGameModeInit@07"/>
-			<referrer name="_@yHOnGameModeInit@08"/>
+			<referrer name="_@yHOnGameModeInit@01"/>
+			<referrer name="_@yHOnGameModeInit@02"/>
+			<referrer name="_@yHOnGameModeInit@03"/>
 			<param name="text">
 				<paraminfo>Text </paraminfo>
 				The ID of the text draw to set the outline thickness of
@@ -25638,8 +25894,9 @@
 		</member>
 		<member name="M:TextDrawSetProportional" syntax="TextDrawSetProportional(text, set)">
 			<attribute name="native"/>
-			<referrer name="_@yHOnGameModeInit@07"/>
-			<referrer name="_@yHOnGameModeInit@08"/>
+			<referrer name="_@yHOnGameModeInit@01"/>
+			<referrer name="_@yHOnGameModeInit@02"/>
+			<referrer name="_@yHOnGameModeInit@03"/>
 			<param name="text">
 				<paraminfo>Text </paraminfo>
 				The ID of the textdraw to set the proportionality of
@@ -25651,8 +25908,9 @@
 		</member>
 		<member name="M:TextDrawSetSelectable" syntax="TextDrawSetSelectable(text, set)">
 			<attribute name="native"/>
-			<referrer name="_@yHOnGameModeInit@07"/>
-			<referrer name="_@yHOnGameModeInit@08"/>
+			<referrer name="_@yHOnGameModeInit@01"/>
+			<referrer name="_@yHOnGameModeInit@02"/>
+			<referrer name="_@yHOnGameModeInit@03"/>
 			<param name="text">
 				<paraminfo>Text </paraminfo>
 				The ID of the textdraw to make selectable
@@ -25664,8 +25922,9 @@
 		</member>
 		<member name="M:TextDrawSetShadow" syntax="TextDrawSetShadow(text, size)">
 			<attribute name="native"/>
-			<referrer name="_@yHOnGameModeInit@07"/>
-			<referrer name="_@yHOnGameModeInit@08"/>
+			<referrer name="_@yHOnGameModeInit@01"/>
+			<referrer name="_@yHOnGameModeInit@02"/>
+			<referrer name="_@yHOnGameModeInit@03"/>
 			<param name="text">
 				<paraminfo>Text </paraminfo>
 				The ID of the textdraw to set the shadow size of
@@ -25690,8 +25949,9 @@
 		</member>
 		<member name="M:TextDrawShowForPlayer" syntax="TextDrawShowForPlayer(playerid, text)">
 			<attribute name="native"/>
-			<referrer name="UI_ShowPlayerIntroScreen"/>
+			<referrer name="UI_ShowPlayerBlackScreen"/>
 			<referrer name="UI_ShowPlayerTempoID"/>
+			<referrer name="UI_ShowPlayerIntro"/>
 			<param name="playerid">
 				The ID of the player to show the textdraw for
 			</param>
@@ -25703,8 +25963,9 @@
 		</member>
 		<member name="M:TextDrawTextSize" syntax="TextDrawTextSize(text, x, y)">
 			<attribute name="native"/>
-			<referrer name="_@yHOnGameModeInit@07"/>
-			<referrer name="_@yHOnGameModeInit@08"/>
+			<referrer name="_@yHOnGameModeInit@01"/>
+			<referrer name="_@yHOnGameModeInit@02"/>
+			<referrer name="_@yHOnGameModeInit@03"/>
 			<param name="text">
 				<paraminfo>Text </paraminfo>
 				The TextDraw to set the size of
@@ -25721,8 +25982,9 @@
 		</member>
 		<member name="M:TextDrawUseBox" syntax="TextDrawUseBox(text, use)">
 			<attribute name="native"/>
-			<referrer name="_@yHOnGameModeInit@07"/>
-			<referrer name="_@yHOnGameModeInit@08"/>
+			<referrer name="_@yHOnGameModeInit@01"/>
+			<referrer name="_@yHOnGameModeInit@02"/>
+			<referrer name="_@yHOnGameModeInit@03"/>
 			<param name="text">
 				<paraminfo>Text </paraminfo>
 				The ID of the text textdraw to toggle the box of
@@ -25746,7 +26008,6 @@
 		<member name="M:Timer_CreateCallback" syntax="Timer_CreateCallback(func, initialOrTime, timeOrCount, count)">
 			<stacksize value="12"/>
 			<referrer name="SetCallbackTimer"/>
-			<referrer name="_@yHOnPlayerConnect@07"/>
 			<dependency name="GetTickCount"/>
 			<dependency name="Indirect_Claim_"/>
 			<dependency name="Indirect_SetMeta_"/>
@@ -25896,37 +26157,37 @@
 			</param>
 			<library>y_utils - maths</library>      <returns>  An unsigned comparison between the two values.  </returns> 
 		</member>
-		<member name="M:UI_HidePlayerBlackScreen" syntax="UI_HidePlayerBlackScreen()">
-			<stacksize value="1"/>
-			<referrer name="TID_tFinishIntro"/>
-		</member>
-		<member name="M:UI_HidePlayerIntro" syntax="UI_HidePlayerIntro()">
-			<stacksize value="1"/>
-			<referrer name="TID_tFinishIntro"/>
-		</member>
-		<member name="M:UI_HidePlayerIntroScreen" syntax="UI_HidePlayerIntroScreen(playerid)">
+		<member name="M:UI_HidePlayerBlackScreen" syntax="UI_HidePlayerBlackScreen(playerid)">
 			<stacksize value="4"/>
-			<referrer name="_@yHOnPlayerConnect@07"/>
+			<referrer name="TID_tFinishIntro"/>
 			<dependency name="TextDrawHideForPlayer"/>
-			<dependency name="blackScreen"/>
-			<dependency name="introFirstText"/>
-			<dependency name="introSecondText"/>
+			<dependency name="UI_sBlackScreen"/>
 			<param name="playerid">
+				The id of the player to whom the black screen will be hidden.
 			</param>
+			
 		</member>
-		<member name="M:UI_HidePlayerLoadingScreen" syntax="UI_HidePlayerLoadingScreen()">
-			<stacksize value="1"/>
-			<referrer name="TID_OnUserRegistered"/>
+		<member name="M:UI_HidePlayerIntro" syntax="UI_HidePlayerIntro(playerid)">
+			<stacksize value="4"/>
+			<referrer name="TID_tFinishIntro"/>
+			<dependency name="TextDrawHideForPlayer"/>
+			<dependency name="UI_sIntroFirstText"/>
+			<dependency name="UI_sIntroSecondText"/>
+			<param name="playerid">
+				The id of the player to whom the intro will be hidden.
+			</param>
+			
 		</member>
 		<member name="M:UI_HidePlayerTempoID" syntax="UI_HidePlayerTempoID(playerid)">
 			<stacksize value="4"/>
+			<referrer name="_@yHTID_OnUserLogin@02"/>
 			<referrer name="TID_RequestPassword"/>
 			<dependency name="CancelSelectTextDraw"/>
+			<dependency name="TIDUI_sBackgroundBannerUp"/>
 			<dependency name="TextDrawHideForPlayer"/>
 			<dependency name="aestheticDesign1"/>
 			<dependency name="aestheticDesing2"/>
 			<dependency name="bgBannerDown"/>
-			<dependency name="bgBannerUp"/>
 			<dependency name="bgButtonOne"/>
 			<dependency name="bgButtonTwo"/>
 			<dependency name="bgMain"/>
@@ -25944,31 +26205,77 @@
 			</param>
 			<summary>* * *</summary>  <seealso name="UI_ShowPlayerTempoID"/>
 		</member>
-		<member name="M:UI_ShowPlayerIntroScreen" syntax="UI_ShowPlayerIntroScreen(playerid)">
-			<stacksize value="4"/>
-			<referrer name="_@yHOnPlayerConnect@07"/>
-			<dependency name="TextDrawShowForPlayer"/>
-			<dependency name="blackScreen"/>
-			<dependency name="introFirstText"/>
-			<dependency name="introSecondText"/>
+		<member name="M:UI_SetPlayerBrightness" syntax="UI_SetPlayerBrightness(playerid, brightness)">
+			<stacksize value="560"/>
+			<dependency name="operator*(Float:,_:)"/>
+			<dependency name="Logger_Dbg"/>
+			<dependency name="Logger_I"/>
+			<dependency name="Logger_I"/>
+			<dependency name="Logger_P"/>
+			<dependency name="Logger_P"/>
+			<dependency name="PlayerTextDrawBoxColor"/>
+			<dependency name="PlayerTextDrawShow"/>
+			<dependency name="UI_sPlayerBrightness"/>
+			<dependency name="floatround"/>
 			<param name="playerid">
+				The id of the player whose brightness will be modified.
 			</param>
+			<param name="brightness">
+				A value between 0 - 100.
+			</param>
+			  <remarks>Function still not tested in game with many users. Unexpected behaviour is possible.</remarks>
 		</member>
-		<member name="M:UI_ShowPlayerLoadingScreen" syntax="UI_ShowPlayerLoadingScreen()">
-			<stacksize value="1"/>
-			<referrer name="TID_RequestPassword"/>
-			<referrer name="TID_OnUserLogin"/>
-			<referrer name="TID_OnUserAutoLogin"/>
+		<member name="M:UI_SetPlayerTextDrawString" syntax="UI_SetPlayerTextDrawString(playerid, textdraw, format[], ...)">
+			<stacksize value="412"/>
+			<dependency name="IsPlayerConnected"/>
+			<dependency name="YVA2_DummyPush"/>
+			<dependency name="cellbytes"/>
+			<dependency name="va_PlayerTextDrawSetString"/>
+			<param name="playerid">
+				The ID of the player to modify its player textdraw.
+			</param>
+			<param name="textdraw">
+				<paraminfo>PlayerText </paraminfo>
+				The textdraw to be modified.
+			</param>
+			<param name="format">
+				<paraminfo> [] </paraminfo>
+				The format string.
+			</param>
+			<param name="...">
+			</param>
+			<summary>Set the string of a specified player textdraw (with formatted option) Returns <c>0</c> on success.</summary>   
+		</member>
+		<member name="M:UI_ShowPlayerBlackScreen" syntax="UI_ShowPlayerBlackScreen(playerid)">
+			<stacksize value="4"/>
+			<referrer name="_@yHOnPlayerConnect@01"/>
+			<dependency name="TextDrawShowForPlayer"/>
+			<dependency name="UI_sBlackScreen"/>
+			<param name="playerid">
+				The id of the player to whom the black screen will be displayed.
+			</param>
+			
+		</member>
+		<member name="M:UI_ShowPlayerIntro" syntax="UI_ShowPlayerIntro(playerid)">
+			<stacksize value="4"/>
+			<referrer name="_@yHOnPlayerConnect@03"/>
+			<dependency name="TextDrawShowForPlayer"/>
+			<dependency name="UI_sIntroFirstText"/>
+			<dependency name="UI_sIntroSecondText"/>
+			<param name="playerid">
+				The id of the player to whom the intro will be displayed.
+			</param>
+			
 		</member>
 		<member name="M:UI_ShowPlayerTempoID" syntax="UI_ShowPlayerTempoID(playerid)">
 			<stacksize value="4"/>
 			<referrer name="TID_tFinishIntro"/>
 			<dependency name="SelectTextDraw"/>
+			<dependency name="TIDUI_sBackgroundBannerUp"/>
 			<dependency name="TextDrawShowForPlayer"/>
 			<dependency name="aestheticDesign1"/>
 			<dependency name="aestheticDesing2"/>
 			<dependency name="bgBannerDown"/>
-			<dependency name="bgBannerUp"/>
 			<dependency name="bgButtonOne"/>
 			<dependency name="bgButtonTwo"/>
 			<dependency name="bgMain"/>
@@ -26842,6 +27149,7 @@
 			<referrer name="va_SetServerRule"/>
 			<referrer name="CallStoredFunction"/>
 			<referrer name="Callback_Call"/>
+			<referrer name="UI_SetPlayerTextDrawString"/>
 			<referrer name="MySQL_PQueryInline"/>
 			<referrer name="MySQL_TQueryInline"/>
 			<dependency name="Debug_Print0"/>
@@ -27105,20 +27413,23 @@
 			<referrer name="@yH_OnPlayerDisconnect@000"/>
 			<referrer name="@yH_OnDialogResponse@000"/>
 			<referrer name="@yH_OnGameModeInit@01"/>
-			<referrer name="@yH_OnGameModeExit@01"/>
-			<referrer name="@yH_OnQueryError@01"/>
-			<referrer name="@yH_OnPlayerConnect@02"/>
-			<referrer name="@yH_OnPlayerDisconnect@02"/>
+			<referrer name="@yH_OnPlayerConnect@01"/>
+			<referrer name="@yH_OnGameModeInit@02"/>
+			<referrer name="@yH_OnPlayerClickTextDraw@02"/>
+			<referrer name="@yH_TID_OnUserLogin@02"/>
+			<referrer name="@yH_OnGameModeInit@03"/>
 			<referrer name="@yH_OnPlayerConnect@03"/>
-			<referrer name="@yH_OnPlayerDisconnect@03"/>
-			<referrer name="@yH_TID_OnUserLogin@06"/>
+			<referrer name="@yH_OnGameModeInit@04"/>
+			<referrer name="@yH_OnGameModeExit@04"/>
+			<referrer name="@yH_OnQueryError@04"/>
+			<referrer name="@yH_OnPlayerConnect@05"/>
+			<referrer name="@yH_OnPlayerDisconnect@05"/>
+			<referrer name="@yH_OnPlayerConnect@06"/>
 			<referrer name="@yH_OnPlayerDisconnect@06"/>
-			<referrer name="@yH_OnGameModeInit@07"/>
-			<referrer name="@yH_OnPlayerConnect@07"/>
-			<referrer name="@yH_OnGameModeInit@08"/>
-			<referrer name="@yH_OnPlayerClickTextDraw@08"/>
-			<referrer name="@yH_OnGameModeInit@09"/>
-			<referrer name="@yH_OnIncomingConnection@09"/>
+			<referrer name="@yH_TID_OnUserLogin@09"/>
+			<referrer name="@yH_OnPlayerDisconnect@09"/>
+			<referrer name="@yH_OnGameModeInit@0@"/>
+			<referrer name="@yH_OnIncomingConnection@0@"/>
 			<dependency name="Debug_Kill_"/>
 			<dependency name="Debug_Print0"/>
 			<dependency name="Hooks_ExtractName"/>
@@ -27214,31 +27525,21 @@
 				<paraminfo> [] </paraminfo>
 			</param>
 		</member>
-		<member name="M:_@yHOnGameModeExit@01" syntax="_@yHOnGameModeExit@01()">
+		<member name="M:_@yHOnGameModeExit@04" syntax="_@yHOnGameModeExit@04()">
 			<attribute name="public"/>
 			<stacksize value="3"/>
-			<referrer name="@yH_OnGameModeExit@01"/>
+			<referrer name="@yH_OnGameModeExit@04"/>
 			<dependency name="TID_GetMySQLHandle"/>
 			<dependency name="mysql_close"/>
 		</member>
 		<member name="M:_@yHOnGameModeInit@01" syntax="_@yHOnGameModeInit@01()">
 			<attribute name="public"/>
-			<stacksize value="282"/>
+			<stacksize value="283"/>
 			<referrer name="@yH_OnGameModeInit@01"/>
-			<dependency name="ALL"/>
+			<dependency name="Logger_Dbg"/>
 			<dependency name="Logger_I"/>
 			<dependency name="Logger_I"/>
-			<dependency name="Logger_Log"/>
-			<dependency name="TID_GetMySQLHandle"/>
-			<dependency name="TID_g_sMySQL"/>
-			<dependency name="mysql_connect_file"/>
-			<dependency name="mysql_errno"/>
-			<dependency name="mysql_log"/>
-		</member>
-		<member name="M:_@yHOnGameModeInit@07" syntax="_@yHOnGameModeInit@07()">
-			<attribute name="public"/>
-			<stacksize value="6"/>
-			<referrer name="@yH_OnGameModeInit@07"/>
+			<dependency name="Logger_ToggleDebug"/>
 			<dependency name="TextDrawAlignment"/>
 			<dependency name="TextDrawBackgroundColor"/>
 			<dependency name="TextDrawBoxColor"/>
@@ -27251,17 +27552,16 @@
 			<dependency name="TextDrawSetShadow"/>
 			<dependency name="TextDrawTextSize"/>
 			<dependency name="TextDrawUseBox"/>
-			<dependency name="blackScreen"/>
+			<dependency name="UI_sBlackScreen"/>
 			<dependency name="false"/>
-			<dependency name="introFirstText"/>
-			<dependency name="introSecondText"/>
 			<dependency name="true"/>
 			<dependency name="va_TextDrawCreate"/>
 		</member>
-		<member name="M:_@yHOnGameModeInit@08" syntax="_@yHOnGameModeInit@08()">
+		<member name="M:_@yHOnGameModeInit@02" syntax="_@yHOnGameModeInit@02()">
 			<attribute name="public"/>
 			<stacksize value="6"/>
-			<referrer name="@yH_OnGameModeInit@08"/>
+			<referrer name="@yH_OnGameModeInit@02"/>
+			<dependency name="TIDUI_sBackgroundBannerUp"/>
 			<dependency name="TextDrawAlignment"/>
 			<dependency name="TextDrawBackgroundColor"/>
 			<dependency name="TextDrawBoxColor"/>
@@ -27277,7 +27577,6 @@
 			<dependency name="aestheticDesign1"/>
 			<dependency name="aestheticDesing2"/>
 			<dependency name="bgBannerDown"/>
-			<dependency name="bgBannerUp"/>
 			<dependency name="bgButtonOne"/>
 			<dependency name="bgButtonTwo"/>
 			<dependency name="bgMain"/>
@@ -27302,18 +27601,58 @@
 			<dependency name="true"/>
 			<dependency name="va_TextDrawCreate"/>
 		</member>
-		<member name="M:_@yHOnGameModeInit@09" syntax="_@yHOnGameModeInit@09()">
+		<member name="M:_@yHOnGameModeInit@03" syntax="_@yHOnGameModeInit@03()">
+			<attribute name="public"/>
+			<stacksize value="283"/>
+			<referrer name="@yH_OnGameModeInit@03"/>
+			<dependency name="Logger_Dbg"/>
+			<dependency name="Logger_I"/>
+			<dependency name="Logger_I"/>
+			<dependency name="Logger_ToggleDebug"/>
+			<dependency name="TextDrawAlignment"/>
+			<dependency name="TextDrawBackgroundColor"/>
+			<dependency name="TextDrawBoxColor"/>
+			<dependency name="TextDrawColor"/>
+			<dependency name="TextDrawFont"/>
+			<dependency name="TextDrawLetterSize"/>
+			<dependency name="TextDrawSetOutline"/>
+			<dependency name="TextDrawSetProportional"/>
+			<dependency name="TextDrawSetSelectable"/>
+			<dependency name="TextDrawSetShadow"/>
+			<dependency name="TextDrawTextSize"/>
+			<dependency name="TextDrawUseBox"/>
+			<dependency name="UI_sIntroFirstText"/>
+			<dependency name="UI_sIntroSecondText"/>
+			<dependency name="false"/>
+			<dependency name="true"/>
+			<dependency name="va_TextDrawCreate"/>
+		</member>
+		<member name="M:_@yHOnGameModeInit@04" syntax="_@yHOnGameModeInit@04()">
+			<attribute name="public"/>
+			<stacksize value="282"/>
+			<referrer name="@yH_OnGameModeInit@04"/>
+			<dependency name="ALL"/>
+			<dependency name="Logger_I"/>
+			<dependency name="Logger_I"/>
+			<dependency name="Logger_Log"/>
+			<dependency name="TID_GetMySQLHandle"/>
+			<dependency name="TID_g_sMySQL"/>
+			<dependency name="mysql_connect_file"/>
+			<dependency name="mysql_errno"/>
+			<dependency name="mysql_log"/>
+		</member>
+		<member name="M:_@yHOnGameModeInit@0@" syntax="_@yHOnGameModeInit@0@()">
 			<attribute name="public"/>
 			<stacksize value="13"/>
-			<referrer name="@yH_OnGameModeInit@09"/>
+			<referrer name="@yH_OnGameModeInit@0@"/>
 			<dependency name="Float:operator=(_:)"/>
 			<dependency name="AddPlayerClass"/>
 			<dependency name="Logger_Log"/>
 		</member>
-		<member name="M:_@yHOnIncomingConnection@09" syntax="_@yHOnIncomingConnection@09(playerid, ip_address[], port)">
+		<member name="M:_@yHOnIncomingConnection@0@" syntax="_@yHOnIncomingConnection@0@(playerid, ip_address[], port)">
 			<attribute name="public"/>
 			<stacksize value="5"/>
-			<referrer name="@yH_OnIncomingConnection@09"/>
+			<referrer name="@yH_OnIncomingConnection@0@"/>
 			<dependency name="E_USER_STATE_CONNECTING"/>
 			<dependency name="TID_SetUserStatus"/>
 			<param name="playerid">
@@ -27324,10 +27663,10 @@
 			<param name="port">
 			</param>
 		</member>
-		<member name="M:_@yHOnPlayerClickTextDraw@08" syntax="_@yHOnPlayerClickTextDraw@08(playerid, clickedid)">
+		<member name="M:_@yHOnPlayerClickTextDraw@02" syntax="_@yHOnPlayerClickTextDraw@02(playerid, clickedid)">
 			<attribute name="public"/>
 			<stacksize value="2010"/>
-			<referrer name="@yH_OnPlayerClickTextDraw@08"/>
+			<referrer name="@yH_OnPlayerClickTextDraw@02"/>
 			<dependency name="Dialog_ShowPlayerDialog"/>
 			<dependency name="TID_DisplayLoginPrompt"/>
 			<dependency name="TID_DisplayRegisterPrompt"/>
@@ -27341,10 +27680,47 @@
 			<param name="clickedid">
 			</param>
 		</member>
-		<member name="M:_@yHOnPlayerConnect@02" syntax="_@yHOnPlayerConnect@02(playerid)">
+		<member name="M:_@yHOnPlayerConnect@01" syntax="_@yHOnPlayerConnect@01(playerid)">
+			<attribute name="public"/>
+			<stacksize value="559"/>
+			<referrer name="@yH_OnPlayerConnect@01"/>
+			<dependency name="Logger_Dbg"/>
+			<dependency name="Logger_I"/>
+			<dependency name="Logger_I"/>
+			<dependency name="Logger_P"/>
+			<dependency name="Logger_P"/>
+			<dependency name="PlayerTextDrawAlignment"/>
+			<dependency name="PlayerTextDrawBackgroundColor"/>
+			<dependency name="PlayerTextDrawBoxColor"/>
+			<dependency name="PlayerTextDrawColor"/>
+			<dependency name="PlayerTextDrawFont"/>
+			<dependency name="PlayerTextDrawLetterSize"/>
+			<dependency name="PlayerTextDrawSetOutline"/>
+			<dependency name="PlayerTextDrawSetProportional"/>
+			<dependency name="PlayerTextDrawSetSelectable"/>
+			<dependency name="PlayerTextDrawSetShadow"/>
+			<dependency name="PlayerTextDrawTextSize"/>
+			<dependency name="PlayerTextDrawUseBox"/>
+			<dependency name="UI_ShowPlayerBlackScreen"/>
+			<dependency name="UI_sPlayerBrightness"/>
+			<dependency name="false"/>
+			<dependency name="true"/>
+			<dependency name="va_CreatePlayerTextDraw"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:_@yHOnPlayerConnect@03" syntax="_@yHOnPlayerConnect@03(playerid)">
+			<attribute name="public"/>
+			<stacksize value="4"/>
+			<referrer name="@yH_OnPlayerConnect@03"/>
+			<dependency name="UI_ShowPlayerIntro"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:_@yHOnPlayerConnect@05" syntax="_@yHOnPlayerConnect@05(playerid)">
 			<attribute name="public"/>
 			<stacksize value="710"/>
-			<referrer name="@yH_OnPlayerConnect@02"/>
+			<referrer name="@yH_OnPlayerConnect@05"/>
 			<dependency name="GetPlayerName"/>
 			<dependency name="Logger_Dbg"/>
 			<dependency name="Logger_P"/>
@@ -27361,30 +27737,14 @@
 			<param name="playerid">
 			</param>
 		</member>
-		<member name="M:_@yHOnPlayerConnect@03" syntax="_@yHOnPlayerConnect@03(playerid)">
+		<member name="M:_@yHOnPlayerConnect@06" syntax="_@yHOnPlayerConnect@06(playerid)">
 			<attribute name="public"/>
 			<stacksize value="4"/>
-			<referrer name="@yH_OnPlayerConnect@03"/>
+			<referrer name="@yH_OnPlayerConnect@06"/>
 			<dependency name="I@"/>
 			<dependency name="J@"/>
 			<dependency name="_yT@ClearingChat"/>
 			<dependency name="_yT@TID_tFinishIntro"/>
-			<param name="playerid">
-			</param>
-		</member>
-		<member name="M:_@yHOnPlayerConnect@07" syntax="_@yHOnPlayerConnect@07(playerid)">
-			<attribute name="public"/>
-			<stacksize value="9"/>
-			<referrer name="@yH_OnPlayerConnect@07"/>
-			<dependency name="I@F"/>
-			<dependency name="I@K"/>
-			<dependency name="I@L"/>
-			<dependency name="I@T"/>
-			<dependency name="Inline_UI_"/>
-			<dependency name="Timer_CreateCallback"/>
-			<dependency name="UI_HidePlayerIntroScreen"/>
-			<dependency name="UI_ShowPlayerIntroScreen"/>
-			<dependency name="operator~(I@T:)"/>
 			<param name="playerid">
 			</param>
 		</member>
@@ -27403,20 +27763,20 @@
 			<param name="reason">
 			</param>
 		</member>
-		<member name="M:_@yHOnPlayerDisconnect@02" syntax="_@yHOnPlayerDisconnect@02(playerid)">
+		<member name="M:_@yHOnPlayerDisconnect@05" syntax="_@yHOnPlayerDisconnect@05(playerid)">
 			<attribute name="public"/>
 			<stacksize value="3"/>
-			<referrer name="@yH_OnPlayerDisconnect@02"/>
+			<referrer name="@yH_OnPlayerDisconnect@05"/>
 			<dependency name="TID_g_sUserCache"/>
 			<dependency name="cache_delete"/>
 			<dependency name="cache_is_valid"/>
 			<param name="playerid">
 			</param>
 		</member>
-		<member name="M:_@yHOnPlayerDisconnect@03" syntax="_@yHOnPlayerDisconnect@03(playerid)">
+		<member name="M:_@yHOnPlayerDisconnect@06" syntax="_@yHOnPlayerDisconnect@06(playerid)">
 			<attribute name="public"/>
 			<stacksize value="5"/>
-			<referrer name="@yH_OnPlayerDisconnect@03"/>
+			<referrer name="@yH_OnPlayerDisconnect@06"/>
 			<dependency name="ClearingChat"/>
 			<dependency name="E_USER_STATE_LOGGING_IN"/>
 			<dependency name="TID_GetUserStatus"/>
@@ -27424,19 +27784,19 @@
 			<param name="playerid">
 			</param>
 		</member>
-		<member name="M:_@yHOnPlayerDisconnect@06" syntax="_@yHOnPlayerDisconnect@06(playerid)">
+		<member name="M:_@yHOnPlayerDisconnect@09" syntax="_@yHOnPlayerDisconnect@09(playerid)">
 			<attribute name="public"/>
 			<stacksize value="3"/>
-			<referrer name="@yH_OnPlayerDisconnect@06"/>
+			<referrer name="@yH_OnPlayerDisconnect@09"/>
 			<dependency name="Delete3DTextLabel"/>
 			<dependency name="l_sVipBadge"/>
 			<param name="playerid">
 			</param>
 		</member>
-		<member name="M:_@yHOnQueryError@01" syntax="_@yHOnQueryError@01(errorid, error[], callback[], query[], handle)">
+		<member name="M:_@yHOnQueryError@04" syntax="_@yHOnQueryError@04(errorid, error[], callback[], query[], handle)">
 			<attribute name="public"/>
 			<stacksize value="558"/>
-			<referrer name="@yH_OnQueryError@01"/>
+			<referrer name="@yH_OnQueryError@04"/>
 			<dependency name="Logger_I"/>
 			<dependency name="Logger_I"/>
 			<dependency name="Logger_Log"/>
@@ -27458,10 +27818,18 @@
 				<paraminfo>MySQL </paraminfo>
 			</param>
 		</member>
-		<member name="M:_@yHTID_OnUserLogin@06" syntax="_@yHTID_OnUserLogin@06(playerid)">
+		<member name="M:_@yHTID_OnUserLogin@02" syntax="_@yHTID_OnUserLogin@02(playerid)">
 			<attribute name="public"/>
 			<stacksize value="4"/>
-			<referrer name="@yH_TID_OnUserLogin@06"/>
+			<referrer name="@yH_TID_OnUserLogin@02"/>
+			<dependency name="UI_HidePlayerTempoID"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:_@yHTID_OnUserLogin@09" syntax="_@yHTID_OnUserLogin@09(playerid)">
+			<attribute name="public"/>
+			<stacksize value="4"/>
+			<referrer name="@yH_TID_OnUserLogin@09"/>
 			<dependency name="TID_LoadUserMembership"/>
 			<param name="playerid">
 			</param>
@@ -27680,7 +28048,7 @@
 			<stacksize value="6"/>
 			<referrer name="@_yTClearingChat"/>
 			<referrer name="@_yTTID_tFinishIntro"/>
-			<referrer name="_@yHOnPlayerDisconnect@03"/>
+			<referrer name="_@yHOnPlayerDisconnect@06"/>
 			<dependency name="KillTimer"/>
 			<dependency name="Malloc_Free"/>
 			<dependency name="YSI_gMallocMemory"/>
@@ -27961,7 +28329,7 @@
 		<member name="M:_yT@ClearingChat" syntax="_yT@ClearingChat(playerid)">
 			<tagname value="Timer"/>
 			<stacksize value="9"/>
-			<referrer name="_@yHOnPlayerConnect@03"/>
+			<referrer name="_@yHOnPlayerConnect@06"/>
 			<dependency name="I@"/>
 			<dependency name="J@"/>
 			<dependency name="O@"/>
@@ -27974,7 +28342,7 @@
 		<member name="M:_yT@TID_tFinishIntro" syntax="_yT@TID_tFinishIntro(playerid)">
 			<tagname value="Timer"/>
 			<stacksize value="9"/>
-			<referrer name="_@yHOnPlayerConnect@03"/>
+			<referrer name="_@yHOnPlayerConnect@06"/>
 			<dependency name="I@"/>
 			<dependency name="J@"/>
 			<dependency name="O@"/>
@@ -28029,7 +28397,7 @@
 		</member>
 		<member name="M:cache_delete" syntax="cache_delete(cache_id)">
 			<attribute name="native"/>
-			<referrer name="_@yHOnPlayerDisconnect@02"/>
+			<referrer name="_@yHOnPlayerDisconnect@05"/>
 			<param name="cache_id">
 				<paraminfo>Cache </paraminfo>
 			</param>
@@ -28122,7 +28490,7 @@
 		<member name="M:cache_is_valid" syntax="cache_is_valid(cache_id)">
 			<tagname value="bool"/>
 			<attribute name="native"/>
-			<referrer name="_@yHOnPlayerDisconnect@02"/>
+			<referrer name="_@yHOnPlayerDisconnect@05"/>
 			<referrer name="TID_GetUserCache"/>
 			<param name="cache_id">
 				<paraminfo>Cache </paraminfo>
@@ -28534,6 +28902,7 @@
 			<referrer name="RandomFloatMinMax"/>
 			<referrer name="RandomFloatMax"/>
 			<referrer name="Vehicle_Speed"/>
+			<referrer name="UI_SetPlayerBrightness"/>
 			<param name="value">
 				<paraminfo>Float </paraminfo>
 				The value to round
@@ -28672,10 +29041,10 @@
 			<referrer name="va_SetPVarString"/>
 			<referrer name="va_AddServerRule"/>
 			<referrer name="va_SetServerRule"/>
-			<referrer name="_@yHOnPlayerConnect@02"/>
+			<referrer name="_@yHOnPlayerClickTextDraw@02"/>
+			<referrer name="_@yHOnPlayerConnect@05"/>
 			<referrer name="TID_DisplayRegisterPrompt"/>
 			<referrer name="TID_RequestPassword"/>
-			<referrer name="_@yHOnPlayerClickTextDraw@08"/>
 			<param name="output">
 				<paraminfo> [] </paraminfo>
 				The string to output the result to
@@ -29246,7 +29615,7 @@
 		</member>
 		<member name="M:mysql_close" syntax="mysql_close(handle)">
 			<attribute name="native"/>
-			<referrer name="_@yHOnGameModeExit@01"/>
+			<referrer name="_@yHOnGameModeExit@04"/>
 			<param name="handle">
 				<paraminfo>MySQL </paraminfo>
 			</param>
@@ -29254,21 +29623,21 @@
 		<member name="M:mysql_connect_file" syntax="mysql_connect_file(file_name[])">
 			<tagname value="MySQL"/>
 			<attribute name="native"/>
-			<referrer name="_@yHOnGameModeInit@01"/>
+			<referrer name="_@yHOnGameModeInit@04"/>
 			<param name="file_name">
 				<paraminfo> [] </paraminfo>
 			</param>
 		</member>
 		<member name="M:mysql_errno" syntax="mysql_errno(handle)">
 			<attribute name="native"/>
-			<referrer name="_@yHOnGameModeInit@01"/>
+			<referrer name="_@yHOnGameModeInit@04"/>
 			<param name="handle">
 				<paraminfo>MySQL </paraminfo>
 			</param>
 		</member>
 		<member name="M:mysql_format" syntax="mysql_format(handle, output[], max_len, format[], ...)">
 			<attribute name="native"/>
-			<referrer name="_@yHOnPlayerConnect@02"/>
+			<referrer name="_@yHOnPlayerConnect@05"/>
 			<referrer name="TID_CreateTempoID"/>
 			<referrer name="TID_IsEmailUsed"/>
 			<referrer name="MySQL_PQueryInline"/>
@@ -29293,7 +29662,7 @@
 		</member>
 		<member name="M:mysql_log" syntax="mysql_log(loglevel)">
 			<attribute name="native"/>
-			<referrer name="_@yHOnGameModeInit@01"/>
+			<referrer name="_@yHOnGameModeInit@04"/>
 			<param name="loglevel">
 				<paraminfo>E_LOGLEVEL </paraminfo>
 			</param>
@@ -29319,7 +29688,7 @@
 		</member>
 		<member name="M:mysql_tquery" syntax="mysql_tquery(handle, query[], callback[], format[], ...)">
 			<attribute name="native"/>
-			<referrer name="_@yHOnPlayerConnect@02"/>
+			<referrer name="_@yHOnPlayerConnect@05"/>
 			<referrer name="TID_CreateTempoID"/>
 			<referrer name="MySQL_TQueryInline"/>
 			<referrer name="TID_AddUserAccess"/>
@@ -30164,6 +30533,7 @@
 		<member name="M:va_CreatePlayerTextDraw" syntax="va_CreatePlayerTextDraw(playerid, x, y, fmat[], ...)">
 			<tagname value="PlayerText"/>
 			<stacksize value="15"/>
+			<referrer name="_@yHOnPlayerConnect@01"/>
 			<dependency name="CreatePlayerTextDraw"/>
 			<dependency name="YSI_gUnsafeHugeString"/>
 			<dependency name="YSI_gUnsafeHugeString"/>
@@ -30253,6 +30623,7 @@
 		<member name="M:va_PlayerTextDrawSetString" syntax="va_PlayerTextDrawSetString(playerid, text, fmat[], ...)">
 			<tagname value="bool"/>
 			<stacksize value="15"/>
+			<referrer name="UI_SetPlayerTextDrawString"/>
 			<dependency name="PlayerTextDrawSetString"/>
 			<dependency name="YSI_gUnsafeHugeString"/>
 			<dependency name="YSI_gUnsafeHugeString"/>
@@ -30626,8 +30997,9 @@
 		<member name="M:va_TextDrawCreate" syntax="va_TextDrawCreate(x, y, fmat[], ...)">
 			<tagname value="Text"/>
 			<stacksize value="15"/>
-			<referrer name="_@yHOnGameModeInit@07"/>
-			<referrer name="_@yHOnGameModeInit@08"/>
+			<referrer name="_@yHOnGameModeInit@01"/>
+			<referrer name="_@yHOnGameModeInit@02"/>
+			<referrer name="_@yHOnGameModeInit@03"/>
 			<dependency name="TextDrawCreate"/>
 			<dependency name="YSI_gUnsafeHugeString"/>
 			<dependency name="YSI_gUnsafeHugeString"/>
@@ -30859,7 +31231,6 @@
 			<referrer name="TID_AutoLoginUser"/>
 			<referrer name="TID_DisplayLoginPrompt"/>
 			<referrer name="TID_LoadUserMembership"/>
-			<referrer name="_@yHOnPlayerConnect@07"/>
 			<dependency name="YSI_g_sInlineLinkedList"/>
 			<dependency name="YSI_g_sJumpOffset"/>
 			<dependency name="__cod"/>
