@@ -15,7 +15,6 @@
 
 #include <YSI_Coding\y_hooks>
 
-
 static 
 PlayerText: UI_sPlayerBrightness[MAX_PLAYERS] = { PlayerText:INVALID_PLAYER_TEXT_DRAW, ... };
 

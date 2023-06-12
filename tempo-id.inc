@@ -47,9 +47,11 @@
 
 ==============================================================================*/
 
+// Module TempoVisual   - Class UserInterface  - Class Brightness - Method SetPlayerBrightness
+
 #include <TempoID\user-interface\tid_ui_brightness>
 #include <TempoID\user-interface\tid_ui_menu>
-#include <tempoid\user-interface\tid_ui_intro>
+#include <TempoID\user-interface\tid_ui_intro>
 
 #include <TempoID\cutscenes\tid_cs_background>
 
